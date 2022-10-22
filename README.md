@@ -1,1 +1,1 @@
-# ScoreoPro
+# Scoreo
