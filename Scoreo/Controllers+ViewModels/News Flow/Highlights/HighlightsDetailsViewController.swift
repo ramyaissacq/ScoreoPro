@@ -42,11 +42,10 @@ class HighlightsDetailsViewController: BaseViewController {
     
     
     func initialSettings(){
-        setHeaderLabel()
         viewModel.delegate = self
-        setTitle(title: "Highlights".localized)
+        self.navigationItem.titleView = getGradientHeaderLabel(title: "Highlights".localized)
         lblAutoPlay.text = "AUTOPLAY".localized
-        lblHeader.text = "Most Watched".localized
+        lblHeader.text = "Related Videos".localized
         setBackButton()
         tableViewVideos.register(UINib(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         tableViewVideos.register(UINib(nibName: "LoaderTableViewCell", bundle: nil), forCellReuseIdentifier: "loaderCell")
@@ -56,10 +55,7 @@ class HighlightsDetailsViewController: BaseViewController {
         
     }
     
-    func setHeaderLabel(){
-        let gradient = lblHeader.getGradientLayer(bounds: lblHeader.bounds)
-        lblHeader.textColor = lblHeader.gradientColor(bounds: lblHeader.bounds, gradientLayer: gradient)
-    }
+   
     
     func configureVideoPlayer(){
         // smallVideoPlayerViewController.showsPlaybackControls = false
@@ -165,6 +161,7 @@ extension HighlightsDetailsViewController:NewsViewModelDelegates{
     
     func didFinishFetchVideos() {
         videoPage += 1
+        self.viewModel.videoList = self.viewModel.originalVideoList
         tableViewVideos.reloadData()
         
     }

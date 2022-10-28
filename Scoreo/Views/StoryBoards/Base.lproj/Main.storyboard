@@ -321,7 +321,7 @@
         <image name="selectedAwards" width="18" height="18.5"/>
         <image name="settings" width="20" height="20"/>
         <namedColor name="AccentColor">
-            <color red="0.94901960784313721" green="0.29803921568627451" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.42352941176470588" green="0.71764705882352942" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

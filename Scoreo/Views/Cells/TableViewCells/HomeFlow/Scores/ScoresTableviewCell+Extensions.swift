@@ -104,7 +104,7 @@ extension ScoresTableViewCell:UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! GeneralRowTableViewCell
         
         if indexPath.row == 0{
-            cell.titleType = .Header(color: Colors.violet1Color())
+            cell.titleType = .Header(color: Colors.accentColor())
             cell.backgroundColor = .clear
         }
         else{

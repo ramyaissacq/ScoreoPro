@@ -111,14 +111,13 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == collectionViewTime{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectionCollectionViewCell", for: indexPath) as! SelectionCollectionViewCell
-            cell.underLineLeading.constant = 0
-            cell.underLineTrailing.constant = 0
+           
             cell.lblTitle.text = timeArray[indexPath.row]
             return cell
         }
         else if collectionView == collectionViewCategory{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoundSelectionCollectionViewCell", for: indexPath) as! RoundSelectionCollectionViewCell
-            cell.configureCell(unselectedViewColor: .clear, selectedViewColor: Colors.appVioletColor(), unselectedTitleColor: Colors.newGrayColor2(), selectedTitleColor: .white, title: viewModel.categories[indexPath.row])
+            cell.configureCell(unselectedViewColor: .clear, selectedViewColor: .white, unselectedTitleColor: Colors.gray1Color(), selectedTitleColor: Colors.accentColor(), title: viewModel.categories[indexPath.row])
             return cell
         }
         else{
@@ -240,9 +239,9 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
                 var  spacing:CGFloat = CGFloat(15 * (viewModel.categories.count - 1))
                 spacing = spacing + 30
                 let width:CGFloat = (UIScreen.main.bounds.width - spacing)/CGFloat(viewModel.categories.count)
-                return CGSize(width: width, height: 20)
+                return CGSize(width: width, height: 28)
             }
-            return CGSize(width: categorySizes[indexPath.row], height: 20)
+            return CGSize(width: categorySizes[indexPath.row], height: 28)
         }
         else{
             let w = UIScreen.main.bounds.width - 10
@@ -259,7 +258,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     //calculating categorySizes
     func calculateCategorySizes(){
         for m in viewModel.categories{
-            let w = m.width(forHeight: 12, font: UIFont(name: "Roboto-Regular", size: 12)!) + 16
+            let w = m.width(forHeight: 14, font: UIFont(name: "NunitoSans-SemiBold", size: 14)!) + 20
             categorySizes.append(w)
         }
     }

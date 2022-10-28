@@ -236,7 +236,7 @@ extension LeagueViewController:UICollectionViewDelegate,UICollectionViewDataSour
         if collectionView == collectionViewTypes{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectionCollectionViewCell", for: indexPath) as! SelectionCollectionViewCell
             cell.lblTitle.text = types[indexPath.row]
-            cell.selectionColor = UIColor(named: "blue8")!
+            
         cell.titleColor1 = .black
             return cell
         }
@@ -272,7 +272,7 @@ extension LeagueViewController:UICollectionViewDelegate,UICollectionViewDataSour
                 return CGSize(width: w-10, height: 35)
             }
             else{
-                let strW = "Match".localized.width(forHeight: 19, font: UIFont(name: "Roboto-Regular", size: 19)!)
+                let strW = "Match".localized.width(forHeight: 19, font: UIFont(name: "NunitoSans-Regular", size: 19)!)
                let width2 = strW + 16
               return CGSize(width: width2, height: 35)
             }

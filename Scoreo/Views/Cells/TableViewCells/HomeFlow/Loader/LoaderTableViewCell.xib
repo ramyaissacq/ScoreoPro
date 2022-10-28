@@ -23,7 +23,7 @@
                             <constraint firstAttribute="height" constant="20" id="4CL-2k-ma2"/>
                             <constraint firstAttribute="width" constant="20" id="sEy-AK-8gY"/>
                         </constraints>
-                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </activityIndicatorView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

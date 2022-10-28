@@ -27,6 +27,7 @@ class NewsViewModel{
             if page == 1{
             self.newsList = response.list
                 self.originalNewsList = response.list
+            
             }
             else{
                 var tempList:[NewsList] = self.originalNewsList ?? []

@@ -177,11 +177,11 @@ extension UIView {
         }
     }
     
-    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+    func roundCorners(corners: UIRectCorner = [], radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
-        layer.mask = mask
+        self.layer.mask = mask
     }
 
     func setCardGradientBackground(color1: UIColor, color2: UIColor)
@@ -329,14 +329,14 @@ extension UIView {
             return layer.shadowRadius
         }
         set {
-            if(shadowRadius != 0)
-            {
+//            if(shadowRadius != 0)
+//            {
                 layer.masksToBounds = false
                 layer.shadowColor = shadowColor.cgColor
                 layer.shadowOffset = shadowOffset
                 layer.shadowOpacity = shadowOpacity
                 layer.shadowRadius = newValue
-            }
+            //}
         }
     }
     
@@ -348,10 +348,10 @@ extension UIView {
 
         }
         set {
-            if(shadowOpacity != 0)
-            {
+//            if(shadowOpacity != 0)
+//            {
                 layer.shadowColor = newValue.cgColor
-            }
+            //}
         }
     }
     
@@ -361,10 +361,10 @@ extension UIView {
             return 0.3
         }
         set {
-            if(shadowOpacity != 0)
-            {
+//            if(shadowOpacity != 0)
+//            {
                 layer.shadowOpacity = newValue
-            }
+            //}
         }
     }
     
@@ -377,6 +377,8 @@ extension UIView {
             layer.shadowOffset = newValue
         }
     }
+    
+    
     
     static func nibForClass() -> Self {
         return loadNib(self)
@@ -570,5 +572,7 @@ extension UIView{
       //get gradient UIcolor from gradient UIImage
     return UIColor(patternImage: image!)
     }
+    
+    
     
 }

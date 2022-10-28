@@ -11,7 +11,6 @@ import AVKit
 class VideoHeighlightsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var imgLogo: UIImageView!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var imgHighlights: UIImageView!
     
@@ -23,17 +22,10 @@ class VideoHeighlightsCollectionViewCell: UICollectionViewCell {
     func configureCell(obj:VideoList?){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Utility.dateFormat.ddMMyyyyWithTimeZone.rawValue
-        //Utility.formatDate(date: dateFormatter.date(from: obj?.createTime ?? ""), with: .ddMMMyyyy)
+        lblTime.text = Utility.formatDate(date: dateFormatter.date(from: obj?.createTime ?? ""), with: .ddMMMyyyy)
         lblTitle.text = obj?.title
         imgHighlights.setImage(with: obj?.thumbnailPath, placeholder: Utility.getPlaceHolder())
-        let queue1 = DispatchQueue(label: "q1", attributes: .concurrent)
-        queue1.async {
-            let (h,m,s) = self.getVideoDuration(url: obj?.cfHlsUrl ?? "")
-            DispatchQueue.main.async {
-                self.lblTime.text = "\(h):\(m):\(s)"
-            }
-            
-        }
+       
        
     
     }

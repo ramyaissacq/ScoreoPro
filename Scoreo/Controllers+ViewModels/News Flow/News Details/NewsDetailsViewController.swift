@@ -35,7 +35,7 @@ class NewsDetailsViewController: BaseViewController {
         if Utility.getCurrentLang() == "cn"{
             separator = "，"
         }
-        setTitle(title: "News".localized)
+        self.navigationItem.titleView = getGradientHeaderLabel(title: "News".localized)
         setBackButton()
 //        let shareBtn = getButton(image: UIImage(named: "share")!)
 //        shareBtn.addTarget(self, action: #selector(actionShare), for: .touchUpInside)
@@ -67,7 +67,7 @@ class NewsDetailsViewController: BaseViewController {
         imgNews.setImage(with: viewModel.newsDetails?.path, placeholder: Utility.getPlaceHolder())
         lblDescription.text = viewModel.newsDetails?.description?.htmlToString
         for m in viewModel.newsDetails?.keywords?.components(separatedBy: separator) ?? []{
-            let w = m.width(forHeight: 19, font: UIFont(name: "Roboto-Regular", size: 13)!) + 20
+            let w = m.width(forHeight: 19, font: UIFont(name: "NunitoSans-Regular", size: 13)!) + 20
             //m.size(withAttributes:[.font: UIFont(name: "Poppins-Regular", size: 13)!])
             cellWidths.append(w)
         }

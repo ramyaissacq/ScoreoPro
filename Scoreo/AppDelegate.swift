@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
             setupLaunch()
         }
         
-        
+       
        
         return true
     }
@@ -66,6 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
         return locale
         
     }
+    
+    
     
     
 }

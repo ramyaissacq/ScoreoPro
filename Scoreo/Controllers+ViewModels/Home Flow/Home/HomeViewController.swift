@@ -57,20 +57,18 @@ class HomeViewController: BaseViewController {
         initialSettings()
     }
     
+     
     
+    override func viewDidAppear(_ animated: Bool) {
+        collectionViewTime.selectItem(at: IndexPath(row: selectedTimeIndex, section: 0), animated: false, scrollPosition: .left)
+    }
     
     func initialSettings(){
-        
-        //        Utility.scheduleLocalNotificationNow(time: 1, title: "Hon Kong Vs Myanmar", subTitle: "", body: "Scores - 2:1, C - 3:1, HT - 1:0")
-        //        Utility.scheduleLocalNotificationNow(time: 5, title: "Hon Kong Vs Myanmar", subTitle: "GOAL!!", body: "Scores - 3:1, C - 3:1, HT - 1:0")
-        //        setupTimerForpinRefresh()
-        //        setupTimerForPinAlert()
         
         setupHilightsTimer()
         setupNavButtons()
         setupGestures()
         configureLottieAnimation()
-        // FootballLeague.populateFootballLeagues()
         configureLeagueDropDown()
         configureSportsDropDown()
         viewModel.categories = viewModel.todayCategories
@@ -92,11 +90,13 @@ class HomeViewController: BaseViewController {
             pageControl.numberOfPages = AppPreferences.getMatchHighlights().count
             highlightsStack.isHidden = false
         }
-        collectionViewTime.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .left)
+        
         viewModel.delegate = self
         viewModel.getMatchesList(page: page)
         viewModel.getBasketballScores()
     }
+    
+    
     
     func configureLottieAnimation(){
         animationView.contentMode = .scaleAspectFit
@@ -266,7 +266,7 @@ class HomeViewController: BaseViewController {
         leagueView.addGestureRecognizer(tapLg)
         
         let tapSp = UITapGestureRecognizer(target: self, action: #selector(tapSports))
-        sportsView!.addGestureRecognizer(tapSp)
+        
         
         let left = UISwipeGestureRecognizer(target: self, action: #selector(swipe(sender:)))
         left.direction = .left
@@ -326,9 +326,8 @@ class HomeViewController: BaseViewController {
     }
     
     func setupNavButtons(){
-        sportsView = SportsView(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: sportsView!)
-        
+        let lbl = getHeaderLabel(title: "Football".localized)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: lbl)
         let rightBtn = getButton(image: UIImage(named: "search")!)
         rightBtn.addTarget(self, action: #selector(searchTapped), for: .touchUpInside)
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightBtn)]

@@ -24,6 +24,7 @@ class RoundSelectionCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        backView.borderWidth = 0
         // Initialization code
     }
     
@@ -41,13 +42,29 @@ class RoundSelectionCollectionViewCell: UICollectionViewCell {
         if isSelected{
             backView.backgroundColor = selectedViewColor
             lblTite.textColor = selectedTitleColor
-            backView.borderWidth = 0
+            addShadow()
+            
         }
         else{
-            backView.backgroundColor = unselectedViewColor
+            backView.backgroundColor = UIColor.clear//unselectedViewColor
             lblTite.textColor = unselectedTitleColor
-            backView.borderWidth = 1
+            //removeShadow()
+          
+            //backView.addShadow(color: .lightGray)
+            
         }
+    }
+    
+    func addShadow(){
+        self.backView.shadowColor = Colors.accentColor()
+        self.backView.shadowOpacity = 1
+        self.backView.shadowRadius = 1
+    }
+    
+    func removeShadow(){
+        self.backView.shadowOpacity = 0
+        self.backView.shadowRadius = 0
+        self.backView.shadowColor = .clear
     }
 
 }

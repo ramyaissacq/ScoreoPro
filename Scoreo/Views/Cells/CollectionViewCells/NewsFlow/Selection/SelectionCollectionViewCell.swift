@@ -9,18 +9,15 @@ import UIKit
 
 class SelectionCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var underLineView: UIView!
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var stack: UIStackView!
     
-    @IBOutlet weak var underLineTrailing: NSLayoutConstraint!
-    @IBOutlet weak var underLineLeading: NSLayoutConstraint!
     
     var callSelection:(()->Void)?
-    var selectionColor = Colors.appVioletColor()
-    var deSelectionColor = Colors.newGrayColor1()
+    var deSelectionColor = UIColor.clear
     var titleColor1 = UIColor.white
-    var titleColor2 = Colors.newGrayColor2()
+    var titleColor2 = Colors.textColor()
     
     
     override func awakeFromNib() {
@@ -44,11 +41,12 @@ class SelectionCollectionViewCell: UICollectionViewCell {
     
     func handleSelection(){
         if isSelected{
-            self.underLineView.backgroundColor = selectionColor
+            let gradient = backView.getGradientLayer(bounds: backView.bounds)
+            backView.backgroundColor = backView.gradientColor(bounds: backView.bounds, gradientLayer: gradient)
             lblTitle.textColor = titleColor1
         }
         else{
-            self.underLineView.backgroundColor = deSelectionColor
+            self.backView.backgroundColor = deSelectionColor
             lblTitle.textColor = titleColor2
         }
     }

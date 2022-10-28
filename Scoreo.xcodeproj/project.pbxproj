@@ -247,10 +247,31 @@
 		AD62DD7028F6A1D500730317 /* prize.json in Resources */ = {isa = PBXBuildFile; fileRef = AD62DD6A28F6A1D500730317 /* prize.json */; };
 		AD62DD7128F6A1D500730317 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD62DD6B28F6A1D500730317 /* Colors.xcassets */; };
 		AD62DD7428F6A33400730317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD62DD7328F6A33400730317 /* Assets.xcassets */; };
-		AD62DD7728F6A75C00730317 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD62DD7628F6A75C00730317 /* Roboto-Regular.ttf */; };
-		AD62DD7928F6A7D900730317 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD62DD7828F6A7D900730317 /* Roboto-Medium.ttf */; };
+		AD6DAEEE2909208C00CACBCF /* MatchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6DAEEC2909208C00CACBCF /* MatchCollectionViewCell.swift */; };
+		AD6DAEEF2909208C00CACBCF /* MatchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6DAEED2909208C00CACBCF /* MatchCollectionViewCell.xib */; };
+		AD6DAEF1290955CF00CACBCF /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6DAEF0290955CF00CACBCF /* RoundView.swift */; };
+		AD8D6F0429096A880084FDEF /* LatestNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8D6F0229096A880084FDEF /* LatestNewsCollectionViewCell.swift */; };
+		AD8D6F0529096A880084FDEF /* LatestNewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8D6F0329096A880084FDEF /* LatestNewsCollectionViewCell.xib */; };
+		ADC7FD692903E8D600237465 /* NunitoSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD5B2903E8D500237465 /* NunitoSans-ExtraLightItalic.ttf */; };
+		ADC7FD6A2903E8D600237465 /* NunitoSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD5C2903E8D600237465 /* NunitoSans-LightItalic.ttf */; };
+		ADC7FD6B2903E8D600237465 /* NunitoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD5D2903E8D600237465 /* NunitoSans-Italic.ttf */; };
+		ADC7FD6C2903E8D600237465 /* NunitoSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD5E2903E8D600237465 /* NunitoSans-ExtraBoldItalic.ttf */; };
+		ADC7FD6D2903E8D600237465 /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD5F2903E8D600237465 /* NunitoSans-Bold.ttf */; };
+		ADC7FD6E2903E8D600237465 /* NunitoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD602903E8D600237465 /* NunitoSans-SemiBold.ttf */; };
+		ADC7FD6F2903E8D600237465 /* NunitoSans-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD612903E8D600237465 /* NunitoSans-BlackItalic.ttf */; };
+		ADC7FD702903E8D600237465 /* NunitoSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD622903E8D600237465 /* NunitoSans-SemiBoldItalic.ttf */; };
+		ADC7FD712903E8D600237465 /* NunitoSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD632903E8D600237465 /* NunitoSans-Black.ttf */; };
+		ADC7FD722903E8D600237465 /* NunitoSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD642903E8D600237465 /* NunitoSans-ExtraBold.ttf */; };
+		ADC7FD732903E8D600237465 /* NunitoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD652903E8D600237465 /* NunitoSans-Light.ttf */; };
+		ADC7FD742903E8D600237465 /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD662903E8D600237465 /* NunitoSans-Regular.ttf */; };
+		ADC7FD752903E8D600237465 /* NunitoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD672903E8D600237465 /* NunitoSans-BoldItalic.ttf */; };
+		ADC7FD762903E8D600237465 /* NunitoSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD682903E8D600237465 /* NunitoSans-ExtraLight.ttf */; };
+		ADD46A74290ABC1900D94DA6 /* NewsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD46A73290ABC1900D94DA6 /* NewsSearchViewController.swift */; };
 		ADDFA4A928FAA36E00CCF764 /* SportsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADDFA4A828FAA36E00CCF764 /* SportsView.xib */; };
 		ADDFA4AB28FAA39100CCF764 /* SportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFA4AA28FAA39100CCF764 /* SportsView.swift */; };
+		ADE12AFD290A56AD008D8D8D /* RoundedCornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE12AFC290A56AD008D8D8D /* RoundedCornerImage.swift */; };
+		ADE12B01290A76CA008D8D8D /* LoaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE12AFF290A76CA008D8D8D /* LoaderCollectionViewCell.swift */; };
+		ADE12B02290A76CA008D8D8D /* LoaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE12B00290A76CA008D8D8D /* LoaderCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -542,11 +563,32 @@
 		AD62DD6A28F6A1D500730317 /* prize.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = prize.json; sourceTree = "<group>"; };
 		AD62DD6B28F6A1D500730317 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		AD62DD7328F6A33400730317 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AD62DD7628F6A75C00730317 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		AD62DD7828F6A7D900730317 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		AD6DAEEC2909208C00CACBCF /* MatchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCollectionViewCell.swift; sourceTree = "<group>"; };
+		AD6DAEED2909208C00CACBCF /* MatchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchCollectionViewCell.xib; sourceTree = "<group>"; };
+		AD6DAEF0290955CF00CACBCF /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		AD8D6F0229096A880084FDEF /* LatestNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestNewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		AD8D6F0329096A880084FDEF /* LatestNewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestNewsCollectionViewCell.xib; sourceTree = "<group>"; };
 		AD8FC2810333C212165D9AFB /* Pods_Scoreo_ScoreoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scoreo_ScoreoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADC7FD5B2903E8D500237465 /* NunitoSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		ADC7FD5C2903E8D600237465 /* NunitoSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		ADC7FD5D2903E8D600237465 /* NunitoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Italic.ttf"; sourceTree = "<group>"; };
+		ADC7FD5E2903E8D600237465 /* NunitoSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		ADC7FD5F2903E8D600237465 /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
+		ADC7FD602903E8D600237465 /* NunitoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		ADC7FD612903E8D600237465 /* NunitoSans-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-BlackItalic.ttf"; sourceTree = "<group>"; };
+		ADC7FD622903E8D600237465 /* NunitoSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		ADC7FD632903E8D600237465 /* NunitoSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Black.ttf"; sourceTree = "<group>"; };
+		ADC7FD642903E8D600237465 /* NunitoSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		ADC7FD652903E8D600237465 /* NunitoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Light.ttf"; sourceTree = "<group>"; };
+		ADC7FD662903E8D600237465 /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
+		ADC7FD672903E8D600237465 /* NunitoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		ADC7FD682903E8D600237465 /* NunitoSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		ADD46A73290ABC1900D94DA6 /* NewsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSearchViewController.swift; sourceTree = "<group>"; };
 		ADDFA4A828FAA36E00CCF764 /* SportsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SportsView.xib; sourceTree = "<group>"; };
 		ADDFA4AA28FAA39100CCF764 /* SportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsView.swift; sourceTree = "<group>"; };
+		ADE12AFC290A56AD008D8D8D /* RoundedCornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerImage.swift; sourceTree = "<group>"; };
+		ADE12AFF290A76CA008D8D8D /* LoaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADE12B00290A76CA008D8D8D /* LoaderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoaderCollectionViewCell.xib; sourceTree = "<group>"; };
 		C8730CD3E0843A6D5FED6391 /* Pods-Scoreo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scoreo.release.xcconfig"; path = "Target Support Files/Pods-Scoreo/Pods-Scoreo.release.xcconfig"; sourceTree = "<group>"; };
 		CF0B68A284E563079235E479 /* Pods-Scoreo-ScoreoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scoreo-ScoreoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Scoreo-ScoreoUITests/Pods-Scoreo-ScoreoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -974,7 +1016,6 @@
 				AD62DB8328F6A09400730317 /* AwardsFlow */,
 				AD62DB9628F6A09400730317 /* NewsFlow */,
 				AD62DBA328F6A09400730317 /* HomeFlow */,
-				AD62DBAD28F6A09400730317 /* Onboarding */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -1049,6 +1090,8 @@
 		AD62DB9628F6A09400730317 /* NewsFlow */ = {
 			isa = PBXGroup;
 			children = (
+				ADE12AFE290A76AF008D8D8D /* Loader */,
+				AD8D6F0129096A660084FDEF /* latestNews */,
 				AD62DB9728F6A09400730317 /* NewsTypes */,
 				AD62DB9A28F6A09400730317 /* News */,
 				AD62DB9D28F6A09400730317 /* HighLights */,
@@ -1096,6 +1139,8 @@
 		AD62DBA328F6A09400730317 /* HomeFlow */ = {
 			isa = PBXGroup;
 			children = (
+				AD6DAEEB2909201F00CACBCF /* Match */,
+				AD62DBAD28F6A09400730317 /* Onboarding */,
 				AD62DBA428F6A09400730317 /* Odds */,
 				AD62DBA728F6A09400730317 /* MatchHighlights */,
 				AD62DBAA28F6A09400730317 /* Selection */,
@@ -1514,6 +1559,7 @@
 			children = (
 				AD62DC2928F6A09400730317 /* Extensions+NewsViewController.swift */,
 				AD62DC2A28F6A09400730317 /* NewsViewController.swift */,
+				ADD46A73290ABC1900D94DA6 /* NewsSearchViewController.swift */,
 				AD62DC2B28F6A09400730317 /* NewsViewModel.swift */,
 			);
 			path = News;
@@ -1749,6 +1795,8 @@
 				AD62DC6E28F6A09500730317 /* UIImageView+Extension.swift */,
 				AD62DC6F28F6A09500730317 /* UIColor+Extension.swift */,
 				AD62DC7028F6A09500730317 /* Date+Extension.swift */,
+				AD6DAEF0290955CF00CACBCF /* RoundView.swift */,
+				ADE12AFC290A56AD008D8D8D /* RoundedCornerImage.swift */,
 				AD62DC7128F6A09500730317 /* UIView+Extension.swift */,
 				AD62DC7228F6A09500730317 /* UINavigationController+Extension.swift */,
 				AD62DC7328F6A09500730317 /* URL+Extension.swift */,
@@ -1767,10 +1815,40 @@
 		AD62DD7528F6A74500730317 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				AD62DD7628F6A75C00730317 /* Roboto-Regular.ttf */,
-				AD62DD7828F6A7D900730317 /* Roboto-Medium.ttf */,
+				ADC7FD632903E8D600237465 /* NunitoSans-Black.ttf */,
+				ADC7FD612903E8D600237465 /* NunitoSans-BlackItalic.ttf */,
+				ADC7FD5F2903E8D600237465 /* NunitoSans-Bold.ttf */,
+				ADC7FD672903E8D600237465 /* NunitoSans-BoldItalic.ttf */,
+				ADC7FD642903E8D600237465 /* NunitoSans-ExtraBold.ttf */,
+				ADC7FD5E2903E8D600237465 /* NunitoSans-ExtraBoldItalic.ttf */,
+				ADC7FD682903E8D600237465 /* NunitoSans-ExtraLight.ttf */,
+				ADC7FD5B2903E8D500237465 /* NunitoSans-ExtraLightItalic.ttf */,
+				ADC7FD5D2903E8D600237465 /* NunitoSans-Italic.ttf */,
+				ADC7FD652903E8D600237465 /* NunitoSans-Light.ttf */,
+				ADC7FD5C2903E8D600237465 /* NunitoSans-LightItalic.ttf */,
+				ADC7FD662903E8D600237465 /* NunitoSans-Regular.ttf */,
+				ADC7FD602903E8D600237465 /* NunitoSans-SemiBold.ttf */,
+				ADC7FD622903E8D600237465 /* NunitoSans-SemiBoldItalic.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		AD6DAEEB2909201F00CACBCF /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				AD6DAEEC2909208C00CACBCF /* MatchCollectionViewCell.swift */,
+				AD6DAEED2909208C00CACBCF /* MatchCollectionViewCell.xib */,
+			);
+			path = Match;
+			sourceTree = "<group>";
+		};
+		AD8D6F0129096A660084FDEF /* latestNews */ = {
+			isa = PBXGroup;
+			children = (
+				AD8D6F0229096A880084FDEF /* LatestNewsCollectionViewCell.swift */,
+				AD8D6F0329096A880084FDEF /* LatestNewsCollectionViewCell.xib */,
+			);
+			path = latestNews;
 			sourceTree = "<group>";
 		};
 		ADDFA4A628FAA33B00CCF764 /* ScoreView */ = {
@@ -1789,6 +1867,15 @@
 				ADDFA4AA28FAA39100CCF764 /* SportsView.swift */,
 			);
 			path = SportsView;
+			sourceTree = "<group>";
+		};
+		ADE12AFE290A76AF008D8D8D /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				ADE12AFF290A76CA008D8D8D /* LoaderCollectionViewCell.swift */,
+				ADE12B00290A76CA008D8D8D /* LoaderCollectionViewCell.xib */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1905,6 +1992,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC7FD722903E8D600237465 /* NunitoSans-ExtraBold.ttf in Resources */,
+				AD6DAEEF2909208C00CACBCF /* MatchCollectionViewCell.xib in Resources */,
 				AD62DCA428F6A09500730317 /* AnalysisTableViewCell.xib in Resources */,
 				AD62DCCC28F6A09500730317 /* VideoHeighlightsCollectionViewCell.xib in Resources */,
 				AD62DCAC28F6A09500730317 /* LeagueHeaderTableViewCell.xib in Resources */,
@@ -1912,36 +2001,46 @@
 				AD62DC8D28F6A09500730317 /* SideMenu.storyboard in Resources */,
 				AD62DC8928F6A09500730317 /* Forum.storyboard in Resources */,
 				AD62DC8E28F6A09500730317 /* News.storyboard in Resources */,
+				ADC7FD762903E8D600237465 /* NunitoSans-ExtraLight.ttf in Resources */,
 				AD62DC8B28F6A09500730317 /* Home.storyboard in Resources */,
 				AD62DCDB28F6A09500730317 /* Dialogs.storyboard in Resources */,
 				AD62DC8428F6A09500730317 /* Awards.strings in Resources */,
+				ADC7FD692903E8D600237465 /* NunitoSans-ExtraLightItalic.ttf in Resources */,
 				AD62DC8528F6A09500730317 /* Home.strings in Resources */,
 				AD62DC9528F6A09500730317 /* LanguageTableViewCell.xib in Resources */,
+				ADC7FD712903E8D600237465 /* NunitoSans-Black.ttf in Resources */,
 				AD62DD7128F6A1D500730317 /* Colors.xcassets in Resources */,
 				AD62DC9928F6A09500730317 /* VideoTableViewCell.xib in Resources */,
+				ADC7FD742903E8D600237465 /* NunitoSans-Regular.ttf in Resources */,
+				ADC7FD6D2903E8D600237465 /* NunitoSans-Bold.ttf in Resources */,
 				AD62DC8F28F6A09500730317 /* Live.storyboard in Resources */,
 				AD2E3E6828F7F0C900F41A60 /* Localizable.strings in Resources */,
 				AD62DCB928F6A09500730317 /* EventTechnicTableViewCell.xib in Resources */,
+				AD8D6F0529096A880084FDEF /* LatestNewsCollectionViewCell.xib in Resources */,
 				AD62DC8A28F6A09500730317 /* Awards.storyboard in Resources */,
+				ADC7FD6A2903E8D600237465 /* NunitoSans-LightItalic.ttf in Resources */,
 				AD62DC8C28F6A09500730317 /* Main.storyboard in Resources */,
 				AD62DCA728F6A09500730317 /* AnalysisHeaderTableViewCell.xib in Resources */,
+				ADC7FD702903E8D600237465 /* NunitoSans-SemiBoldItalic.ttf in Resources */,
 				AD62DCAF28F6A09500730317 /* LoaderTableViewCell.xib in Resources */,
 				AD62DCD928F6A09500730317 /* Dialogs.strings in Resources */,
 				AD62DC8628F6A09500730317 /* News.strings in Resources */,
-				AD62DD7928F6A7D900730317 /* Roboto-Medium.ttf in Resources */,
 				AD62DD7428F6A33400730317 /* Assets.xcassets in Resources */,
+				ADC7FD6B2903E8D600237465 /* NunitoSans-Italic.ttf in Resources */,
 				AD62DCBB28F6A09500730317 /* MoreCollectionViewCell.xib in Resources */,
 				AD62DCAA28F6A09500730317 /* ScoresTableViewCell.xib in Resources */,
 				AD62DC8728F6A09500730317 /* Main.strings in Resources */,
 				AD62DCD028F6A09500730317 /* OddsCollectionViewCell.xib in Resources */,
 				AD62DC9128F6A09500730317 /* StandingsTableViewCell.xib in Resources */,
+				ADC7FD6E2903E8D600237465 /* NunitoSans-SemiBold.ttf in Resources */,
+				ADC7FD752903E8D600237465 /* NunitoSans-BoldItalic.ttf in Resources */,
 				AD62DD6E28F6A1D500730317 /* loading.json in Resources */,
 				AD62DCB728F6A09500730317 /* EventsHomeTableViewCell.xib in Resources */,
+				ADC7FD6C2903E8D600237465 /* NunitoSans-ExtraBoldItalic.ttf in Resources */,
 				AD62DCD628F6A09500730317 /* OnboardingCollectionViewCell.xib in Resources */,
 				AD62DC9A28F6A09500730317 /* NewsTableViewCell.xib in Resources */,
 				AD62DCD428F6A09500730317 /* RoundSelectionCollectionViewCell.xib in Resources */,
 				AD62DCD128F6A09500730317 /* HighlightsCollectionViewCell.xib in Resources */,
-				AD62DD7728F6A75C00730317 /* Roboto-Regular.ttf in Resources */,
 				ADDFA4A928FAA36E00CCF764 /* SportsView.xib in Resources */,
 				AD62DAF028F69AF300730317 /* LaunchScreen.storyboard in Resources */,
 				AD62DCC628F6A09500730317 /* TitleCollectionViewCell.xib in Resources */,
@@ -1950,11 +2049,13 @@
 				AD62DCB328F6A09500730317 /* EventsAwayTableViewCell.xib in Resources */,
 				AD62DC9F28F6A09500730317 /* GeneralRowTableViewCell.xib in Resources */,
 				AD2407DA28FFC7EB00EC5A49 /* football.json in Resources */,
+				ADE12B02290A76CA008D8D8D /* LoaderCollectionViewCell.xib in Resources */,
 				AD62DC9728F6A09500730317 /* SideMenuTableViewCell.xib in Resources */,
 				AD62DCBE28F6A09500730317 /* RankCollectionViewCell.xib in Resources */,
 				AD62DCA128F6A09500730317 /* AnalysisOddsTableViewCell.xib in Resources */,
 				AD62DCB528F6A09500730317 /* EventTechnicHeaderTableViewCell.xib in Resources */,
 				AD62DCC928F6A09500730317 /* NewsGamesCollectionViewCell.xib in Resources */,
+				ADC7FD732903E8D600237465 /* NunitoSans-Light.ttf in Resources */,
 				AD62DCC428F6A09500730317 /* TeamCollectionViewCell.xib in Resources */,
 				AD62DCAE28F6A09500730317 /* LeagueTableViewCell.xib in Resources */,
 				AD62DC8828F6A09500730317 /* SideMenu.strings in Resources */,
@@ -1964,6 +2065,7 @@
 				AD62DCBF28F6A09500730317 /* ResultCollectionViewCell.xib in Resources */,
 				AD62DC9328F6A09500730317 /* AlternativeTableViewCell.xib in Resources */,
 				AD62DCCD28F6A09500730317 /* SelectionCollectionViewCell.xib in Resources */,
+				ADC7FD6F2903E8D600237465 /* NunitoSans-BlackItalic.ttf in Resources */,
 				AD62DCB128F6A09500730317 /* EventsHeaderTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2092,7 +2194,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADE12AFD290A56AD008D8D8D /* RoundedCornerImage.swift in Sources */,
 				AD62DCC828F6A09500730317 /* TypesCollectionViewCell.swift in Sources */,
+				AD6DAEEE2909208C00CACBCF /* MatchCollectionViewCell.swift in Sources */,
+				ADD46A74290ABC1900D94DA6 /* NewsSearchViewController.swift in Sources */,
 				AD62DD5228F6A09500730317 /* UIColor+Extension.swift in Sources */,
 				AD62DCE328F6A09500730317 /* BasketballAnalysisData.swift in Sources */,
 				AD62DD1128F6A09500730317 /* HomeStandings.swift in Sources */,
@@ -2102,6 +2207,7 @@
 				AD62DCDD28F6A09500730317 /* ConfirmationViewController.swift in Sources */,
 				AD62DD6228F6A09500730317 /* Utility.swift in Sources */,
 				AD62DD3428F6A09500730317 /* LeagueViewController.swift in Sources */,
+				ADE12B01290A76CA008D8D8D /* LoaderCollectionViewCell.swift in Sources */,
 				AD62DD2928F6A09500730317 /* LiveViewController.swift in Sources */,
 				ADDFA4AB28FAA39100CCF764 /* SportsView.swift in Sources */,
 				AD62DC9628F6A09500730317 /* SideMenuTableViewCell.swift in Sources */,
@@ -2258,8 +2364,10 @@
 				AD62DD4228F6A09500730317 /* AlternativeViewController.swift in Sources */,
 				AD62DD5C28F6A09500730317 /* Dictionary+Extension.swift in Sources */,
 				AD62DD0128F6A09500730317 /* List.swift in Sources */,
+				AD8D6F0429096A880084FDEF /* LatestNewsCollectionViewCell.swift in Sources */,
 				AD62DD1C28F6A09500730317 /* NewsList.swift in Sources */,
 				AD62DD3828F6A09500730317 /* BriefingViewController.swift in Sources */,
+				AD6DAEF1290955CF00CACBCF /* RoundView.swift in Sources */,
 				AD62DD4E28F6A09500730317 /* BaseViewController.swift in Sources */,
 				AD62DCF828F6A09500730317 /* LeagueData02.swift in Sources */,
 				AD62DD5F28F6A09500730317 /* CollectionViewExtension.swift in Sources */,
@@ -2568,10 +2676,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BF6BJ5B5VU;
+				DEVELOPMENT_TEAM = 9C9FU36V4K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Scoreo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "775 Sports";
+				INFOPLIST_KEY_CFBundleDisplayName = ScorePro;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2603,10 +2711,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = BF6BJ5B5VU;
+				DEVELOPMENT_TEAM = 9C9FU36V4K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Scoreo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "775 Sports";
+				INFOPLIST_KEY_CFBundleDisplayName = ScorePro;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
