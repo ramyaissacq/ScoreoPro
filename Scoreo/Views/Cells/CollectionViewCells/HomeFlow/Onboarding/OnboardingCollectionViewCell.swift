@@ -9,11 +9,10 @@ import UIKit
 
 class OnboardingCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var lblTitle: UILabel!
-    
     @IBOutlet weak var btnSkip: UIButton!
-    @IBOutlet weak var nextView: UIView!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var imgCurrent: UIImageView!
     
@@ -25,8 +24,10 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        let gradient = btnSkip.getGradientLayer(bounds: btnSkip.bounds)
-        btnSkip.setTitleColor(btnSkip.gradientColor(bounds: btnSkip.bounds, gradientLayer: gradient), for: .normal)
+        let gradient = btnNext.getGradientLayer(bounds: btnNext.bounds)
+        btnNext.backgroundColor = btnNext.gradientColor(bounds: btnNext.bounds, gradientLayer: gradient)
+        btnNext.setTitle("Next".localized, for: .normal)
+        btnSkip.setTitle("Skip".localized, for: .normal)
         
     }
     
@@ -35,8 +36,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         lblDescription.text = description
         pageControl.currentPage = index
         imgCurrent.image = image
-        let tap = UITapGestureRecognizer(target: self, action: #selector(actionCallNext))
-        nextView.addGestureRecognizer(tap)
+        
     }
     
     @IBAction func actionSkip(){
@@ -44,7 +44,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
        // callSkip?()
     }
     
-    @objc func actionCallNext(){
+    @IBAction func actionCallNext(){
         callNext?()
     }
 

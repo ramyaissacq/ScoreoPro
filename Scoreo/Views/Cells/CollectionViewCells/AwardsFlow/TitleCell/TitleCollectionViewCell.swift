@@ -11,6 +11,7 @@ enum TitleType{
     case GrayHeader
     case RedHeader
     case Header(color:UIColor)
+    case Bold
 }
 
 class TitleCollectionViewCell: UICollectionViewCell {
@@ -33,8 +34,11 @@ class TitleCollectionViewCell: UICollectionViewCell {
     func setupTitle(){
         switch titleType{
         case .Normal:
-            lblTitle.textColor = .white
+            lblTitle.textColor = .black
             lblTitle.font = UIFont(name: "NunitoSans-Regular", size: 10)
+        case .Bold:
+            lblTitle.textColor = .black
+            lblTitle.font = UIFont(name: "NunitoSans-Bold", size: 10)
         case .RedHeader:
             lblTitle.textColor = Colors.accentColor()
             lblTitle.font = UIFont(name: "NunitoSans-Black", size: 10)

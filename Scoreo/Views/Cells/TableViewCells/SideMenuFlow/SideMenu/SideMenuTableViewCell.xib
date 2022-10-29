@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
+        <array key="NunitoSans-Regular.ttf">
+            <string>NunitoSans-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -41,33 +41,28 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Analysis" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvd-gy-6m4">
-                                <rect key="frame" x="40" y="15.5" width="60.5" height="19"/>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="40" y="12.5" width="69" height="25"/>
+                                <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="18"/>
+                                <color key="textColor" name="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roE-r6-odL">
-                                <rect key="frame" x="0.0" y="57" width="336" height="1"/>
-                                <color key="backgroundColor" name="backColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="ebL-FY-UQ6"/>
-                                </constraints>
-                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="roE-r6-odL" secondAttribute="bottom" id="0xs-QO-Pii"/>
                             <constraint firstItem="Tnh-UT-wCF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tvd-gy-6m4" secondAttribute="trailing" constant="8" id="FqA-oi-jUd"/>
                             <constraint firstItem="8Tg-ho-PCC" firstAttribute="leading" secondItem="suz-hL-haN" secondAttribute="leading" constant="10" id="Nl6-gn-Fp2"/>
-                            <constraint firstItem="roE-r6-odL" firstAttribute="leading" secondItem="suz-hL-haN" secondAttribute="leading" id="Uqm-jA-YYG"/>
                             <constraint firstItem="tvd-gy-6m4" firstAttribute="centerY" secondItem="8Tg-ho-PCC" secondAttribute="centerY" id="g8S-ex-StD"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Tg-ho-PCC" secondAttribute="bottom" constant="15" id="gbj-ar-GOH"/>
                             <constraint firstAttribute="trailing" secondItem="Tnh-UT-wCF" secondAttribute="trailing" constant="10" id="jrm-4K-D0X"/>
                             <constraint firstItem="tvd-gy-6m4" firstAttribute="leading" secondItem="8Tg-ho-PCC" secondAttribute="trailing" constant="10" id="nPe-00-thH"/>
                             <constraint firstItem="Tnh-UT-wCF" firstAttribute="centerY" secondItem="8Tg-ho-PCC" secondAttribute="centerY" id="vhE-Bn-R8d"/>
-                            <constraint firstAttribute="trailing" secondItem="roE-r6-odL" secondAttribute="trailing" id="wiG-dR-rqM"/>
                             <constraint firstItem="8Tg-ho-PCC" firstAttribute="top" secondItem="suz-hL-haN" secondAttribute="top" constant="15" id="wmc-fT-r2Q"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,9 +83,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="sideArrow" width="9" height="15"/>
-        <namedColor name="backColor">
-            <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="sideArrow" width="20" height="20"/>
+        <namedColor name="darkTextColor">
+            <color red="0.18431372549019609" green="0.23921568627450981" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

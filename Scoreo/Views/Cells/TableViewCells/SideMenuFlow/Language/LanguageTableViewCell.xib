@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
+        <array key="NunitoSans-Regular.ttf">
+            <string>NunitoSans-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -27,21 +27,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="321" height="60"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Language" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxd-xM-qsa">
-                                <rect key="frame" x="33" y="21" width="280" height="18"/>
-                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="38" y="20" width="275" height="20.5"/>
+                                <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="15"/>
+                                <color key="textColor" name="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deselectedRound" translatesAutoresizingMaskIntoConstraints="NO" id="2Rg-R9-X9e">
-                                <rect key="frame" x="8" y="22.5" width="15" height="15"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenRound" translatesAutoresizingMaskIntoConstraints="NO" id="2Rg-R9-X9e">
+                                <rect key="frame" x="8" y="20" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="15" id="9IZ-Ek-WFF"/>
-                                    <constraint firstAttribute="height" constant="15" id="dqh-J8-eYh"/>
+                                    <constraint firstAttribute="width" constant="20" id="9IZ-Ek-WFF"/>
+                                    <constraint firstAttribute="height" constant="20" id="dqh-J8-eYh"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvL-Pg-JVF">
                                 <rect key="frame" x="0.0" y="59" width="321" height="1"/>
-                                <color key="backgroundColor" name="backColor"/>
+                                <color key="backgroundColor" name="gray2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="WiD-9c-AAT"/>
                                 </constraints>
@@ -80,9 +80,12 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="deselectedRound" width="20" height="20"/>
-        <namedColor name="backColor">
-            <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="greenRound" width="18" height="18"/>
+        <namedColor name="darkTextColor">
+            <color red="0.18431372549019609" green="0.23921568627450981" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray2">
+            <color red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

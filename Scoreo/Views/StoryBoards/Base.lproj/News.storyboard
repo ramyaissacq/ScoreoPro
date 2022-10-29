@@ -166,6 +166,8 @@
                         <outlet property="collectionViewHeader" destination="ZoP-5H-Amj" id="xzX-Dd-Wdz"/>
                         <outlet property="collectionViewTop" destination="MSQ-ms-hYw" id="tNl-EC-pDv"/>
                         <outlet property="emptyView" destination="iDS-r0-WgK" id="dg0-mW-xaO"/>
+                        <outlet property="fixedLatest" destination="uVb-sF-ct4" id="rcD-u5-lLe"/>
+                        <outlet property="fixedLblHandPicks" destination="JDC-gh-meg" id="mDf-L7-ACZ"/>
                         <outlet property="topStack" destination="XYP-Si-J4i" id="J5U-Dh-NFH"/>
                     </connections>
                 </viewController>
@@ -548,7 +550,7 @@
             <color red="0.42352941176470588" green="0.71764705882352942" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="backColor">
-            <color red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="darkTextColor">
             <color red="0.18431372549019609" green="0.23921568627450981" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

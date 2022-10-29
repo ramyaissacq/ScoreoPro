@@ -10,7 +10,7 @@ import UIKit
 class SearchViewController: BaseViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var searchBar:UISearchBar!
-    @IBOutlet weak var tableView:UITableView!
+    @IBOutlet weak var collectionViewMatch:UICollectionView!
     
     //MARK: - Variables
     
@@ -28,9 +28,10 @@ class SearchViewController: BaseViewController {
     func initialSettings(){
         setTitle(title: "Search".localized)
         setBackButton()
-        tableView.register(UINib(nibName: "ScoresTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        tableView.register(UINib(nibName: "LoaderTableViewCell", bundle: nil), forCellReuseIdentifier: "loaderCell")
-        searchBar.searchTextField.textColor = .white
+        collectionViewMatch.registerCell(identifier: "MatchCollectionViewCell")
+        collectionViewMatch.registerCell(identifier: "LoaderCollectionViewCell")
+        collectionViewMatch.registerCell(identifier: "ScheduledMatchCollectionViewCell")
+        searchBar.searchTextField.textColor = .black
         viewModel.delegate = self
         
     }
@@ -79,7 +80,7 @@ extension SearchViewController:UISearchBarDelegate{
             else{
                 self.viewModel.basketballMatches?.removeAll()
             }
-            tableView.reloadData()
+            collectionViewMatch.reloadData()
         }
         
     }
@@ -93,7 +94,71 @@ extension SearchViewController:UISearchBarDelegate{
             self.viewModel.basketballMatches?.removeAll()
             self.viewModel.basketballMatches = self.viewModel.originaBasketballMatches?.filter{($0.leagueNameEn?.lowercased().contains(searchText.lowercased()) ?? false) || ($0.homeTeamEn?.lowercased().contains(searchText.lowercased()) ?? false) || ($0.awayTeamEn?.lowercased().contains(searchText.lowercased()) ?? false)}
         }
-        tableView.reloadData()
+        collectionViewMatch.reloadData()
+    }
+    
+    
+}
+
+extension SearchViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if selectedSport == .soccer{
+        return self.viewModel.matches?.count ?? 0
+        }
+        else{
+            return self.viewModel.basketballMatches?.count ?? 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if selectedSport == .soccer{
+        if indexPath.row == (self.viewModel.matches?.count ?? 0) - 1{
+            if (viewModel.pageData?.lastPage ?? 0) > page{
+                viewModel.getMatchesList(page: page)
+                    let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "LoaderCollectionViewCell", for: indexPath) as! LoaderCollectionViewCell
+                    cell.activity.startAnimating()
+                    return cell
+                }
+            }
+        }
+        if selectedTimeIndex == 2{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScheduledMatchCollectionViewCell", for: indexPath) as! ScheduledMatchCollectionViewCell
+            if selectedSport == .soccer{
+                cell.configureCell(obj: viewModel.matches?[indexPath.row])
+            }
+            else{
+                cell.configureCell(obj: viewModel.basketballMatches?[indexPath.row])
+            }
+            return cell
+        }
+    
+        else{
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MatchCollectionViewCell", for: indexPath) as! MatchCollectionViewCell
+        if selectedSport == .soccer{
+            cell.configureCell(obj: viewModel.matches?[indexPath.row])
+        }
+        else{
+            cell.configureCell(obj: viewModel.basketballMatches?[indexPath.row])
+        }
+        return cell
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if selectedTimeIndex == 2{
+            let w = UIScreen.main.bounds.width - 20
+            return CGSize(width: w, height: 70)
+        }
+        else{
+        let w = (UIScreen.main.bounds.width - 30)/2
+        if selectedSport == .soccer{
+        return CGSize(width: w, height: 170)
+        }
+        else{
+            return CGSize(width: w, height: 245)
+        }
+        }
     }
     
     

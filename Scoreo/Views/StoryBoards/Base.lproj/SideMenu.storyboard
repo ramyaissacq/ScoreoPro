@@ -92,7 +92,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="backColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9kX-6r-1Wh" secondAttribute="bottom" constant="10" id="1nE-vb-5Hs"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pud-eI-1Ua" secondAttribute="trailing" constant="15" id="7Si-5D-89C"/>
@@ -133,7 +133,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iCF-Mt-SMN"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="backColor"/>
                         <constraints>
                             <constraint firstItem="eV1-aI-96R" firstAttribute="top" secondItem="iCF-Mt-SMN" secondAttribute="top" constant="20" id="6fF-Pm-SNA"/>
                             <constraint firstItem="iCF-Mt-SMN" firstAttribute="bottom" secondItem="eV1-aI-96R" secondAttribute="bottom" constant="10" id="7VK-FR-iOe"/>
@@ -228,6 +228,9 @@
     </scenes>
     <resources>
         <image name="Avatar" width="60" height="60"/>
+        <namedColor name="backColor">
+            <color red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="black1">
             <color red="0.20000000000000001" green="0.21176470588235294" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

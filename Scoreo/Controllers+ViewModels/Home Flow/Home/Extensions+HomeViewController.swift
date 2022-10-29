@@ -62,7 +62,7 @@ extension HomeViewController:HomeViewModelDelegate{
     }
     
     func prepareDisplays(){
-        tableView.reloadData()
+        collectionViewMatch.reloadData()
         if selectedSportsType == .soccer{
             if viewModel.matches?.count ?? 0 > 0{
                 animationView.stop()
@@ -97,6 +97,9 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         else if collectionView == collectionViewCategory{
             return viewModel.categories.count
         }
+        else if collectionView == collectionViewMatch{
+            return viewModel.getModelCount(sport: selectedSportsType)
+        }
         else{
             if selectedSportsType == .soccer{
                 return AppPreferences.getMatchHighlights().count
@@ -119,6 +122,39 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoundSelectionCollectionViewCell", for: indexPath) as! RoundSelectionCollectionViewCell
             cell.configureCell(unselectedViewColor: .clear, selectedViewColor: .white, unselectedTitleColor: Colors.gray1Color(), selectedTitleColor: Colors.accentColor(), title: viewModel.categories[indexPath.row])
             return cell
+        }
+        else if collectionView == collectionViewMatch{
+            if (selectedSportsType == .soccer) && (selectedTimeIndex == 0){
+                if indexPath.row == viewModel.getModelCount(sport: selectedSportsType)-1 && selectedLeagueID == nil{
+                    if page <= (viewModel.pageData?.lastPage ?? 0){
+                        viewModel.getMatchesList(page: page)
+                        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "LoaderCollectionViewCell", for: indexPath) as! LoaderCollectionViewCell
+                        cell.activity.startAnimating()
+                        return cell
+                    }
+                }
+            }
+            if selectedTimeIndex == 2{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScheduledMatchCollectionViewCell", for: indexPath) as! ScheduledMatchCollectionViewCell
+                if selectedSportsType == .soccer{
+                    cell.configureCell(obj: viewModel.matches?[indexPath.row])
+                }
+                else{
+                    cell.configureCell(obj: viewModel.basketballMatches?[indexPath.row])
+                }
+                return cell
+            }
+        
+            else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MatchCollectionViewCell", for: indexPath) as! MatchCollectionViewCell
+            if selectedSportsType == .soccer{
+                cell.configureCell(obj: viewModel.matches?[indexPath.row])
+            }
+            else{
+                cell.configureCell(obj: viewModel.basketballMatches?[indexPath.row])
+            }
+            return cell
+            }
         }
         else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HighlightsCollectionViewCell", for: indexPath) as! HighlightsCollectionViewCell
@@ -242,6 +278,21 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
                 return CGSize(width: width, height: 28)
             }
             return CGSize(width: categorySizes[indexPath.row], height: 28)
+        }
+        else if collectionView == collectionViewMatch{
+            if selectedTimeIndex == 2{
+                let w = UIScreen.main.bounds.width - 20
+                return CGSize(width: w, height: 70)
+            }
+            else{
+            let w = (UIScreen.main.bounds.width - 30)/2
+            if selectedSportsType == .soccer{
+            return CGSize(width: w, height: 170)
+            }
+            else{
+                return CGSize(width: w, height: 245)
+            }
+            }
         }
         else{
             let w = UIScreen.main.bounds.width - 10

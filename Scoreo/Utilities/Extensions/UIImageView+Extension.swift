@@ -4,6 +4,8 @@ import UIKit
 import Kingfisher
 
 extension UIImageView{
+   
+    
     var imageWithFade:UIImage?
     {
         get

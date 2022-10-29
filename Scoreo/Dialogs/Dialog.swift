@@ -86,6 +86,14 @@ class Dialog: NSObject {
         
     }
     
+    class func openSportsDialog(selectedSport:Int, completed : @escaping (Int)->()){
+        let vc = SelectSportsViewController.instance()
+        vc.selectedSport = selectedSport
+        vc.sportSelected = completed
+        //openViewControllerAsDialog(viewController: vc, dismissed: nil)
+        openViewControllerAsBottomSheet(touchDismiss: true, viewController: vc, dismissed: nil)
+    }
+    
     
     
     class func openSuccessDialog(buttonLabel :String,title :String,msg :String, completed : (()->())?, dismissed : (()->())?){

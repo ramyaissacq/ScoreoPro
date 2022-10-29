@@ -27,6 +27,7 @@ class Utility: NSObject {
         case hhmm2 = "HH:mm"
         case eddmmm = "E, d MMM"
         case edmmmHHmm = "E, d MMM HH:mm"
+        case mmmdyyyy = "MMM d, yyyy"
     }
     
   

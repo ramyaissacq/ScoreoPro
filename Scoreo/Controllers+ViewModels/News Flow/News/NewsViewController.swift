@@ -18,6 +18,9 @@ class NewsViewController: BaseViewController {
     @IBOutlet weak var topStack: UIStackView!
     @IBOutlet weak var emptyView: UIView!
     
+    @IBOutlet weak var fixedLblHandPicks: UILabel!
+    
+    @IBOutlet weak var fixedLatest: UILabel!
     //MARK: - Variables
     var collectionViewNewsObserver: NSKeyValueObservation?
     var headers = ["News".localized,"Highlights".localized]
@@ -71,6 +74,8 @@ class NewsViewController: BaseViewController {
     
     func intialSettings(){
         setupNavBar()
+        fixedLblHandPicks.text = "Hand Picks".localized
+        fixedLatest.text = "Latest".localized
         collectionViewHeader.registerCell(identifier: "SelectionCollectionViewCell")
         collectionViewTop.registerCell(identifier: "NewsGamesCollectionViewCell")
         collectionViewBottom.registerCell(identifier: "VideoHeighlightsCollectionViewCell")

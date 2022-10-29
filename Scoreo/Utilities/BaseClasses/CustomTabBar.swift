@@ -11,8 +11,12 @@ class CustomTabBar:UITabBar{
    
     
     override func awakeFromNib() {
-        self.barTintColor = .black
-        self.isTranslucent = false
+        layer.masksToBounds = true
+        layer.cornerRadius = 20
+        layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        
+        //self.barTintColor = .white
+        //self.isTranslucent = false
         //setColors()
     }
     

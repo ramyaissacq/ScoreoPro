@@ -16,7 +16,7 @@ enum SportsType{
 
 class HomeViewController: BaseViewController {
     //MARK: - IBOutlets
-    @IBOutlet weak var tableView:UITableView!
+    @IBOutlet weak var collectionViewMatch:UICollectionView!
     @IBOutlet weak var collectionViewCategory: UICollectionView!
     @IBOutlet weak var noDataView: UIView!
     @IBOutlet weak var leagueView: UIView!
@@ -37,7 +37,6 @@ class HomeViewController: BaseViewController {
     var categorySizes = [CGFloat]()
     var selectedType = 0
     var leagueDropDown:DropDown?
-    var sportDropDown:DropDown?
     var selectedLeagueID:Int?
     var selectedTimeIndex = 0
     var selectedDate = ""
@@ -63,6 +62,20 @@ class HomeViewController: BaseViewController {
         collectionViewTime.selectItem(at: IndexPath(row: selectedTimeIndex, section: 0), animated: false, scrollPosition: .left)
     }
     
+    //MARK: - IBActions
+    @IBAction func actionTapSports(_ sender: Any) {
+         let sportIndex = (selectedSportsType == .soccer) ? 0 : 1
+        Dialog.openSportsDialog(selectedSport: sportIndex) { index in
+            if index == 0{
+                self.selectedSportsType = .soccer
+            }
+            else{
+                self.selectedSportsType = .basketball
+            }
+            self.configureSportSelection()
+        }
+    }
+    
     func initialSettings(){
         
         setupHilightsTimer()
@@ -70,26 +83,23 @@ class HomeViewController: BaseViewController {
         setupGestures()
         configureLottieAnimation()
         configureLeagueDropDown()
-        configureSportsDropDown()
         viewModel.categories = viewModel.todayCategories
         collectionViewTime.registerCell(identifier: "SelectionCollectionViewCell")
         collectionViewCategory.registerCell(identifier: "RoundSelectionCollectionViewCell")
         collectionViewHighlights.registerCell(identifier: "HighlightsCollectionViewCell")
         collectionViewCategory.selectItem(at: IndexPath(row: 0, section: 0), animated: true, scrollPosition: .left)
-        tableView.register(UINib(nibName: "ScoresTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        tableView.register(UINib(nibName: "LoaderTableViewCell", bundle: nil), forCellReuseIdentifier: "loaderCell")
-        refreshControl = UIRefreshControl()
-        //refreshControl?.tintColor = .clear
-        refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        tableView.refreshControl = refreshControl
+        collectionViewMatch.registerCell(identifier: "MatchCollectionViewCell")
+        collectionViewMatch.registerCell(identifier: "LoaderCollectionViewCell")
+        collectionViewMatch.registerCell(identifier: "ScheduledMatchCollectionViewCell")
+       
         
-        if AppPreferences.getMatchHighlights().isEmpty{
-            highlightsStack.isHidden = true
-        }
-        else{
-            pageControl.numberOfPages = AppPreferences.getMatchHighlights().count
-            highlightsStack.isHidden = false
-        }
+//        if AppPreferences.getMatchHighlights().isEmpty{
+//            highlightsStack.isHidden = true
+//        }
+//        else{
+//            pageControl.numberOfPages = AppPreferences.getMatchHighlights().count
+//            highlightsStack.isHidden = false
+//        }
         
         viewModel.delegate = self
         viewModel.getMatchesList(page: page)
@@ -106,30 +116,8 @@ class HomeViewController: BaseViewController {
         
     }
     
-    
-    
-    
-    
-    
-    func configureSportsDropDown(){
-        
-        sportDropDown = DropDown()
-        sportDropDown?.anchorView = sportsView?.lblSports
-        sportDropDown?.dataSource = ["Football".localized,"Basketball".localized]
-        sportsView?.lblSports.text = "Football".localized
-        sportDropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
-            sportsView?.lblSports.text = item
-            if index == 0{
-                selectedSportsType = .soccer
-            }
-            else{
-                selectedSportsType = .basketball
-            }
-            configureSportSelection()
-        }
-        
-        
-    }
+   
+   
     
     func configureSportSelection(){
         resetSportType()
@@ -264,10 +252,7 @@ class HomeViewController: BaseViewController {
     func setupGestures(){
         let tapLg = UITapGestureRecognizer(target: self, action: #selector(tapLeague))
         leagueView.addGestureRecognizer(tapLg)
-        
-        let tapSp = UITapGestureRecognizer(target: self, action: #selector(tapSports))
-        
-        
+       
         let left = UISwipeGestureRecognizer(target: self, action: #selector(swipe(sender:)))
         left.direction = .left
         left.delegate = self
@@ -286,10 +271,7 @@ class HomeViewController: BaseViewController {
         
     }
     
-    @objc func tapSports(){
-        sportDropDown?.show()
-    }
-    
+   
     
     
     @objc func swipe(sender:UISwipeGestureRecognizer){
