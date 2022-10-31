@@ -36,7 +36,6 @@ class HomeViewController: BaseViewController {
     var refreshControl:UIRefreshControl?
     var categorySizes = [CGFloat]()
     var selectedType = 0
-    var leagueDropDown:DropDown?
     var selectedLeagueID:Int?
     var selectedTimeIndex = 0
     var selectedDate = ""
@@ -82,7 +81,7 @@ class HomeViewController: BaseViewController {
         setupNavButtons()
         setupGestures()
         configureLottieAnimation()
-        configureLeagueDropDown()
+        lblLeague.text = "All Leagues".localized
         viewModel.categories = viewModel.todayCategories
         collectionViewTime.registerCell(identifier: "SelectionCollectionViewCell")
         collectionViewCategory.registerCell(identifier: "RoundSelectionCollectionViewCell")
@@ -147,29 +146,36 @@ class HomeViewController: BaseViewController {
         
     }
     
-    func configureLeagueDropDown(){
-        leagueDropDown = DropDown()
-        leagueDropDown?.anchorView = lblLeague
-        //        var arr:[String] = FootballLeague.leagues?.map{"League: " + ($0.name ?? "") } ?? []
-        //        arr.insert("All Leagues", at: 0)
-        //        leagueDropDown?.dataSource = arr
-        //        lblLeague.text = arr.first
-        lblLeague.text = "All Leagues".localized
-        leagueDropDown?.selectionAction = { [unowned self] (index: Int, item: String) in
-            lblLeague.text = item
-            if index == 0{
-                selectedLeagueID = nil
-                if selectedTimeIndex == 0 && selectedSportsType == .soccer{
-                    page = 1
-                    viewModel.getMatchesList(page: page)
+    func openLeaguePopup(){
+        if viewModel.scoreResponse?.todayHotLeague?.count == 0{
+            return
+        }
+        var leagues = viewModel.scoreResponse?.todayHotLeague ?? []
+        var fob = TodayHotLeague()
+        fob.leagueName = "All Leagues".localized
+        fob.leagueId = 0
+        leagues.insert(fob, at: 0)
+        let vc = UIStoryboard(name: "Dialogs", bundle: nil).instantiateViewController(identifier: "LeaguePopupViewController") as! LeaguePopupViewController
+        vc.leagues = leagues
+        vc.originalLeagues = leagues
+        vc.callSelected = { obj in
+
+            self.lblLeague.text = obj.leagueName
+            if obj.leagueId == 0{
+                self.selectedLeagueID = nil
+                if self.selectedTimeIndex == 0 && self.selectedSportsType == .soccer{
+                    self.page = 1
+                    self.viewModel.getMatchesList(page: self.page)
                 }
+                
             }
             else{
-                selectedLeagueID = viewModel.scoreResponse?.todayHotLeague?[index-1].leagueId
-                //FootballLeague.leagues?[index-1].id
-                viewModel.getMatchesByLeague(leagueID: selectedLeagueID!)
+                self.selectedLeagueID = obj.leagueId
+                self.viewModel.getMatchesByLeague(leagueID: self.selectedLeagueID!)
             }
         }
+        self.present(vc, animated: true, completion: nil)
+       
         
     }
     
@@ -179,19 +185,7 @@ class HomeViewController: BaseViewController {
         selectedTimeIndex = 0
         collectionViewTime.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .left)
         if selectedSportsType == .soccer{
-            let frequency = Int(HomeViewController.urlDetails?.promptFrequency ?? "") ?? 0
-            if frequency > 0{
-                
-                var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
-                arr.insert("All Leagues".localized, at: 0)
-                self.leagueDropDown?.dataSource = arr
-                lblLeague.text = arr.first
-            }
-            else{
-                leagueDropDown?.dataSource = ["All Leagues".localized]
-                lblLeague.text = "All Leagues".localized
-            }
-            
+            lblLeague.text = "All Leagues".localized
             page = 1
             viewModel.getMatchesList(page: page)
         }
@@ -212,17 +206,6 @@ class HomeViewController: BaseViewController {
             viewModel.categories = viewModel.todayCategories
             collectionViewCategory.reloadData()
             if selectedSportsType == .soccer{
-                let frequency = Int(HomeViewController.urlDetails?.promptFrequency ?? "") ?? 0
-                if frequency > 0{
-                    var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
-                    arr.insert("All Leagues".localized, at: 0)
-                    self.leagueDropDown?.dataSource = arr
-                    lblLeague.text = arr.first
-                }
-                else{
-                    leagueDropDown?.dataSource = ["All Leagues".localized]
-                    lblLeague.text = "All Leagues".localized
-                }
                 
                 page = 1
                 viewModel.getMatchesList(page: page)
@@ -232,11 +215,9 @@ class HomeViewController: BaseViewController {
             }
         case 1:
             viewModel.categories = viewModel.pastDates
-            leagueDropDown?.dataSource = ["All Leagues".localized]
             lblLeague.text = "All Leagues".localized
         case 2:
             viewModel.categories = viewModel.futureDates
-            leagueDropDown?.dataSource = ["All Leagues".localized]
             lblLeague.text = "All Leagues".localized
             
         default:
@@ -267,12 +248,16 @@ class HomeViewController: BaseViewController {
     
     
     @objc func tapLeague(){
-        leagueDropDown?.show()
+        let mapCnt = HomeViewController.urlDetails?.map?.count ?? 0
+        if mapCnt > 0{
+            if selectedSportsType == .soccer && selectedTimeIndex == 0{
+            openLeaguePopup()
+        }
+        }
         
     }
     
    
-    
     
     @objc func swipe(sender:UISwipeGestureRecognizer){
         if sender.direction == .left{

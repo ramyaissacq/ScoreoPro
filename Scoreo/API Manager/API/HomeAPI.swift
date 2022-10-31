@@ -146,7 +146,7 @@ class HomeAPI: WebService {
         let build = Bundle.main.infoDictionary!["CFBundleVersion"]!
         //"com.test.app",
         //
-        let params:[String:Any] = ["package_name":Bundle.main.bundleIdentifier ?? "",
+        let params:[String:Any] = ["package_name":"com.test.app",//Bundle.main.bundleIdentifier ?? "",
             "platform":"iOS",
             "device_name":UIDevice.current.model,
             "version":version,

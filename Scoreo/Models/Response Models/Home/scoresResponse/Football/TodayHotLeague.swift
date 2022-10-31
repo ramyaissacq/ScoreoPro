@@ -9,12 +9,21 @@ import SwiftyJSON
 
 struct TodayHotLeague {
 
-	let leagueId: Int?
+	var leagueId: Int?
 	let leagueEn: String?
 	let leagueEnShort: String?
 	let leagueChsShort: String?
-	let leagueName: String?
+	var leagueName: String?
 	let leagueNameShort: String?
+    
+    init(){
+        leagueId = nil
+        leagueEn = ""
+        leagueEnShort = ""
+        leagueChsShort = ""
+        leagueName = ""
+        leagueNameShort = ""
+    }
 
 	init(_ json: JSON) {
 		leagueId = json["leagueId"].intValue

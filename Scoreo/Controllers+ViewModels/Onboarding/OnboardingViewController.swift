@@ -10,9 +10,9 @@ import UIKit
 class OnboardingViewController: UIViewController {
     
     var current = 0
-    var titles = ["Welcome!".localized,"Football".localized,"Basketball".localized,"Live Score Update".localized,"Match Statistics".localized,"Experience the App".localized]
+    var titles = ["Welcome!".localized,"Football".localized,"Live Score Update".localized,"Match Statistics".localized]
     
-    var descriptions = ["Welcome to corescore, Your one stop shop for all for sports needs".localized,"Keep yourself updated with all the major and minor legagues and matches around the world as well as league standings and individual player standings".localized,"Weather its NBA or any other basketball league, we will keep you updated with all the coming matches and results".localized,"Our state of the art score keeping system will keep you updated wherever you are".localized,"Detail match analysis and statistics, goals scores, past results, future fixtures, fouls each and every major and minor statistics for every game are available".localized,"Enough hyping the app, Experience it yourself first hand".localized]
+    var descriptions = ["Welcome to corescore, Your one stop shop for all for sports needs".localized,"Keep yourself updated with all the major and minor legagues and matches around the world as well as league standings and individual player standings".localized,"Our state of the art score keeping system will keep you updated wherever you are".localized,"Detail match analysis and statistics, goals scores, past results, future fixtures, fouls each and every major and minor statistics for every game are available".localized]
     
     @IBOutlet weak var collectionView: UICollectionView!
     

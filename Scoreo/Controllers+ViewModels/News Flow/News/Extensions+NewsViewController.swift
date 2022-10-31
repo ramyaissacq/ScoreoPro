@@ -17,7 +17,7 @@ extension NewsViewController:UICollectionViewDelegate,UICollectionViewDataSource
             return headers.count
         }
         else if collectionView == collectionViewTop{
-            return viewModel.newsList?.count ?? 0
+            return viewModel.topNewsList?.count ?? 0
         }
         else if selectedHeaderIndex == 0{
             return (viewModel.newsList?.count ?? 0) + 1
@@ -38,7 +38,7 @@ extension NewsViewController:UICollectionViewDelegate,UICollectionViewDataSource
         }
         else if collectionView == collectionViewTop{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsGamesCollectionViewCell", for: indexPath) as! NewsGamesCollectionViewCell
-            cell.configureCell(obj: viewModel.newsList?[indexPath.row])
+            cell.configureCell(obj: viewModel.topNewsList?[indexPath.row])
             return cell
             
         }
@@ -77,9 +77,9 @@ extension NewsViewController:UICollectionViewDelegate,UICollectionViewDataSource
             self.setupViews()
         }
         else if collectionView == collectionViewTop{
-            if indexPath.row < (viewModel.newsList?.count ?? 0){
+            if indexPath.row < (viewModel.topNewsList?.count ?? 0){
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewsDetailsViewController") as! NewsDetailsViewController
-            vc.newsID = viewModel.newsList?[indexPath.row].id
+            vc.newsID = viewModel.topNewsList?[indexPath.row].id
             self.navigationController?.pushViewController(vc, animated: true)
             }
             

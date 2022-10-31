@@ -397,9 +397,10 @@ class Utility: NSObject {
    }
     
     class func gotoHome(){
-        let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarNavigation")
+        let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarNavigation") as! UITabBarController
+        tabVC.selectedIndex = 1
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = homeVC
+        appDelegate.window?.rootViewController = tabVC
     }
     
     class func shareAction(text:String?,url:NSURL?,image:UIImage?,vc:UIViewController){

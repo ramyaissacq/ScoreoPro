@@ -17,16 +17,15 @@ class NewsViewController: BaseViewController {
     @IBOutlet weak var headerView2: UIView!
     @IBOutlet weak var topStack: UIStackView!
     @IBOutlet weak var emptyView: UIView!
-    
     @IBOutlet weak var fixedLblHandPicks: UILabel!
-    
     @IBOutlet weak var fixedLatest: UILabel!
+    
     //MARK: - Variables
     var collectionViewNewsObserver: NSKeyValueObservation?
     var headers = ["News".localized,"Highlights".localized]
     var selectedHeaderIndex = 0
     var viewModel = NewsViewModel()
-    var newsPage = 1
+    var newsPage = 2
     var videoPage = 1
     var refreshControl:UIRefreshControl?
     
@@ -88,6 +87,7 @@ class NewsViewController: BaseViewController {
        collectionViewBottom.refreshControl = refreshControl
         setupViews()
         viewModel.delegate = self
+        viewModel.getNews(page: 1)
         viewModel.getNews(page: newsPage)
         viewModel.getVideos(page: videoPage)
         
@@ -112,7 +112,7 @@ class NewsViewController: BaseViewController {
     }
     
     @objc func refreshViews(){
-        newsPage = 1
+        newsPage = 2
         videoPage = 1
         viewModel.getNews(page: newsPage)
         viewModel.getVideos(page: videoPage)
@@ -122,11 +122,15 @@ class NewsViewController: BaseViewController {
 
 //MARK: NewsViewModelDelegates
 extension NewsViewController:NewsViewModelDelegates{
+    func didFinishTopNewsFetch(){
+        collectionViewTop.reloadData()
+    }
     
 func didFinishFetchNews() {
+    
     newsPage += 1
     self.viewModel.newsList = self.viewModel.originalNewsList
-    collectionViewTop.reloadData()
+    
     collectionViewBottom.reloadData()
     if viewModel.newsList?.count ?? 0 > 0{
         emptyView.isHidden = true

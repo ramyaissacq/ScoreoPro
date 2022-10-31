@@ -94,6 +94,15 @@ class Dialog: NSObject {
         openViewControllerAsBottomSheet(touchDismiss: true, viewController: vc, dismissed: nil)
     }
     
+    class func openLeaguePopup(leagues:[TodayHotLeague]?, completed : @escaping (TodayHotLeague)->()){
+        let vc = LeaguePopupViewController.instance()
+        vc.leagues = leagues
+        vc.callSelected = completed
+        openViewControllerAsBottomSheet(touchDismiss: true, viewController: vc, dismissed: nil)
+        //openViewControllerAsDialog(viewController: vc, dismissed: nil)
+       
+    }
+    
     
     
     class func openSuccessDialog(buttonLabel :String,title :String,msg :String, completed : (()->())?, dismissed : (()->())?){

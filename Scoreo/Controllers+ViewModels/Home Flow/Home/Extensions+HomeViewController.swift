@@ -22,7 +22,6 @@ extension HomeViewController:HomeViewModelDelegate{
     }
     
     func didFinishFetchBasketballScores() {
-        leagueDropDown?.dataSource = ["All Leagues".localized]
         lblLeague.text = "All Leagues".localized
         viewModel.filterBasketballMatches(type: selectedType)
         prepareDisplays()
@@ -41,21 +40,14 @@ extension HomeViewController:HomeViewModelDelegate{
         return page
     }
     
+    func getSelectedLeagueID()->Int?{
+           return selectedLeagueID
+       }
+    
+    
     func diFinisfFetchMatches() {
         page += 1
         viewModel.filterMatches(type: selectedType)
-        let frequency = Int(HomeViewController.urlDetails?.promptFrequency ?? "") ?? 0
-        if frequency > 0{
-            var arr:[String] = viewModel.scoreResponse?.todayHotLeague?.map{$0.leagueName ?? ""} ?? []
-            arr.insert("All Leagues".localized, at: 0)
-            self.leagueDropDown?.dataSource = arr
-            self.lblLeague.text = arr.first
-        }
-        else{
-            leagueDropDown?.dataSource = ["All Leagues".localized]
-            lblLeague.text = "All Leagues".localized
-        }
-        
         
         prepareDisplays()
         

@@ -9,7 +9,7 @@ import UIKit
 
 class LeaguePopupTableViewCell: UITableViewCell {
     @IBOutlet weak var lblLeague:UILabel!
-    @IBOutlet weak var imgLeague:UILabel!
+    @IBOutlet weak var imgLeague:UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

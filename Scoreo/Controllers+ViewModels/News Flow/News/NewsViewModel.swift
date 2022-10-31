@@ -10,11 +10,20 @@ import Foundation
 protocol NewsViewModelDelegates{
     func didFinishFetchNews()
     func didFinishFetchVideos()
+    func didFinishTopNewsFetch()
+}
+
+extension NewsViewModelDelegates{
+    func didFinishTopNewsFetch(){
+        
+    }
+    
 }
 
 class NewsViewModel{
     var delegate:NewsViewModelDelegates?
     var newsList:[NewsList]?
+    var topNewsList:[NewsList]?
     var videoList:[VideoList]?
     var newsPageData:Meta?
     var videoPageData:Meta?
@@ -25,9 +34,13 @@ class NewsViewModel{
         NewsAPI().getNews(page: page) { response in
             self.newsPageData = response.meta
             if page == 1{
-            self.newsList = response.list
-                self.originalNewsList = response.list
-            
+                self.topNewsList = response.list
+                self.delegate?.didFinishTopNewsFetch()
+                return
+            }
+            else if page == 2{
+                self.newsList = response.list
+                    self.originalNewsList = response.list
             }
             else{
                 var tempList:[NewsList] = self.originalNewsList ?? []
@@ -39,7 +52,6 @@ class NewsViewModel{
         } failed: { msg in
             Utility.showErrorSnackView(message: msg)
         }
-
         
     }
     
