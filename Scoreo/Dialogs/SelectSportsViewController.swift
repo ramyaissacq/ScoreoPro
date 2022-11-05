@@ -21,6 +21,7 @@ class SelectSportsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
+    @IBOutlet weak var lblTop: UILabel!
     
     var sports = [Sports]()
     var selectedSport = 0
@@ -33,10 +34,11 @@ class SelectSportsViewController: UIViewController {
     }
     
     func initialSettings(){
+        lblTop.text = "Choose your game".localized
         tableView.register(UINib(nibName: "SportsSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        let football = Sports(name: "Football", image: UIImage(named: "football")!)
+        let football = Sports(name: "Football".localized, image: UIImage(named: "football")!)
         sports.append(football)
-        let basketball = Sports(name: "Basketball", image: UIImage(named: "basketball")!)
+        let basketball = Sports(name: "Basketball".localized, image: UIImage(named: "basketball")!)
         sports.append(basketball)
         tableView.reloadData()
         tableView.selectRow(at: IndexPath(row: selectedSport, section: 0), animated: false, scrollPosition: .top)

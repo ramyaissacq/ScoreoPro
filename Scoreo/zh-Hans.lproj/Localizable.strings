@@ -39,18 +39,16 @@
 "European Cup" = "欧洲杯";
 "Confederations Cup" = "联合会杯";
 "America's Cup" = "美洲杯";
-"Welcome!" = "欢迎！";
 "Football" = "足球";
 "Basketball" = "篮球";
-"Live Score Update" = "实时比分更新";
-"Match Statistics" = "比赛统计";
-"Experience the App" = "体验应用程序";
-"Welcome to corescore, Your one stop shop for all for sports needs" = "欢迎来到 corescore，您一站式的全能足球篮球资讯应用";
-"Keep yourself updated with all the major and minor legagues and matches around the world as well as league standings and individual player standings" = "随时了解世界各地的所有联赛和比赛，以及联赛排名和个人球员排名";
-"Weather its NBA or any other basketball league, we will keep you updated with all the coming matches and results" = "无论 NBA 或任何其他篮球联赛，我们将让您了解所有即将到来的比赛和结果";
-"Our state of the art score keeping system will keep you updated wherever you are" = "无论您身在何处，我们最先进的记分系统都会让您随时了解最新情况";
-"Detail match analysis and statistics, goals scores, past results, future fixtures, fouls each and every major and minor statistics for every game are available" = "详细的比赛数据包含了分析和统计、进球得分、过去的结果、未来的赛程、犯规每场比赛，每个主要和次要统计数据等等";
-"Enough hyping the app, Experience it yourself first hand" = "我们不多说了，邀请您亲身体验。";
+"Welcome to ScorePro" = "欢迎来到 泰坦体育";
+"Live Score Updates" = "直播比分更新";
+"Not Just Another App" = "不仅仅是另一个应用程序";
+"ScorePro is your one stop shop to your world of sports. Say goodbye to googling results and keeping tabs on your favourite teams and say hello to a world of infotainment all on your fingertips! " = "泰坦体育是你通往体育世界的一站式商店。告别搜索结果和关注你最喜欢的球队，向你指尖上的信息娱乐世界问好吧！我们没有任何东西不涉及。没有什么是我们不知道的。你在寻找赛程、更新、转会、预测或大宗交易？我们已经为你准备好了。加入我们，享受终极体育体验";
+"Football events like you’ve never seen them before. From the leagues to the World Cup and everything in between, we have it covered" = "你从未见过这样的足球赛事。从金球奖到世界杯，以及两者之间的一切，我们都有覆盖。无论你最喜欢的球员是否在考虑转会，或者你支持的球队是否在为冠军而努力，你都会在第一时间从泰坦体育听到。我们涵盖一切，所以你可以躺下享受。";
+"As it happens, because even a second too late is too late in our books. We take the match from the field and put it on your screen, so that you’re in the know as it happens" = "因为在我们的看中，哪怕是晚一秒也是太晚了。我们把比赛从现场带到你的屏幕上，让你在比赛发生时就能知道。你不再需要等待结果和刷新页面了! 不管是什么比赛，也不管是什么球队，你都会得到一个银盘上的分数。";
+
+"You deserve the best and your favourite team needs your support. We get you in to the action like never before. Wanna know how your team is going to perform? No problem!" = "你应该得到最好的，你最喜欢的球队需要你的支持。我们让你以前所未有的方式参与到行动中。想知道你的球队将如何表现吗？没问题! 我们的分析和评论将使你掌握在其他地方无法得到的知识。想知道球员将如何比较？我们为你提供。我们被称为体育界的天气预报员不是没有道理的!";
 "Privacy Policy" = "隐私政策";
 "Language" = "语言";
 "Share App" = "分享应用";
@@ -205,3 +203,4 @@
 "Settings" = "设置";
 "Hand Picks" = "手选";
 "Latest" = "最新的";
+"Choose your game" = "选择你的游戏";

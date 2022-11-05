@@ -6,7 +6,8 @@ class BaseUrl{
     
     private static let testBaseUrl = "https://www.77577.live/api/"
     private static let stagingBaseUrl = "https://www.77577.live/api/"
-    private static let productionBaseUrl = "https://www.77577.live/api/"
+    private static let productionBaseUrl = "https://app4.sports996.com/api/"
+    
     
     class func getBaseUrl() -> String
     {

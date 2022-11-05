@@ -17,6 +17,7 @@ pod 'Alamofire' #Webservice
  pod 'lottie-ios'
  pod 'SideMenu'
  pod 'MOLH'
+ pod 'ImageSlideshow/Kingfisher'
 
 
   target 'ScoreoTests' do

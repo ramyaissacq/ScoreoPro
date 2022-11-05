@@ -78,7 +78,7 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ygt-yw-l2J">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ygt-yw-l2J">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="655"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Tm-Jt-FkL">
@@ -96,6 +96,18 @@
                                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="lbj-2w-ozl"/>
                                                 </connections>
                                             </collectionView>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ixq-Km-5gq" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="170"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="170" id="gQt-NN-37v"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -273,6 +285,7 @@
                         <outlet property="collectionViewMatch" destination="1Tm-Jt-FkL" id="iBu-pd-C3e"/>
                         <outlet property="collectionViewTime" destination="fdB-Ni-YIp" id="qB1-vf-Xyp"/>
                         <outlet property="highlightsStack" destination="0mS-Cf-6gq" id="sbJ-Mn-1TF"/>
+                        <outlet property="imageSlideshow" destination="Ixq-Km-5gq" id="6iv-1S-tdI"/>
                         <outlet property="lblLeague" destination="rFw-PS-c1b" id="x5w-Z4-HMb"/>
                         <outlet property="leagueView" destination="iEp-dq-Tcy" id="fWf-ah-uVz"/>
                         <outlet property="noDataView" destination="L4o-oM-avv" id="znl-am-NK7"/>

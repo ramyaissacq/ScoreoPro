@@ -53,7 +53,18 @@ extension HomeViewController:HomeViewModelDelegate{
         
     }
     
+    func applySearch(){
+        if !(searchBar.text?.isEmpty ?? false) {
+            doSearch(searchText: searchBar.text ?? "")
+        }
+    }
+    
     func prepareDisplays(){
+        applySearch()
+        prepareViews()
+    }
+    
+    func prepareViews(){
         collectionViewMatch.reloadData()
         if selectedSportsType == .soccer{
             if viewModel.matches?.count ?? 0 > 0{

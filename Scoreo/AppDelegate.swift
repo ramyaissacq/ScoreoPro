@@ -30,9 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
         else{
             setupLaunch()
         }
-        
-       
-       
+      
         return true
     }
     

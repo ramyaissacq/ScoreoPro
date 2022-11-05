@@ -8,6 +8,9 @@
 import UIKit
 import DropDown
 import Lottie
+import ImageSlideshow
+import CoreAudio
+
 
 enum SportsType{
     case soccer
@@ -26,8 +29,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionViewHighlightsHeight: NSLayoutConstraint!
     @IBOutlet weak var animationView: AnimationView!
-    
-    
+    @IBOutlet weak var imageSlideshow: ImageSlideshow!
     @IBOutlet weak var collectionViewTime: UICollectionView!
     
     //MARK: - Variables
@@ -47,12 +49,20 @@ class HomeViewController: BaseViewController {
     var timerHighlightsRefresh = Timer()
     var isHighlights = false
     static var urlDetails:UrlDetails?
+    
     var timeArray = ["Today".localized,"Result".localized,"Schedule".localized]
     var sportsView:SportsView?
+    let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.width - 180), height: 30))
+    let pageIndicator = UIPageControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       resetSportType()
+        
     }
     
      
@@ -76,7 +86,7 @@ class HomeViewController: BaseViewController {
     }
     
     func initialSettings(){
-        
+        setupSlideshow()
         setupHilightsTimer()
         setupNavButtons()
         setupGestures()
@@ -114,10 +124,7 @@ class HomeViewController: BaseViewController {
         animationView.play()
         
     }
-    
    
-   
-    
     func configureSportSelection(){
         resetSportType()
         if selectedSportsType == .soccer{
@@ -295,9 +302,10 @@ class HomeViewController: BaseViewController {
     func setupNavButtons(){
         let lbl = getHeaderLabel(title: "Football".localized)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: lbl)
-        let rightBtn = getButton(image: UIImage(named: "search")!)
-        rightBtn.addTarget(self, action: #selector(searchTapped), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rightBtn)]
+        //searchBar.searchTextField.backgroundColor = UIColor(hex: "#FFE7E2")
+        searchBar.placeholder = "Search".localized
+        searchBar.delegate = self
+        self.navigationItem.titleView = searchBar
     }
     
     @objc func menuTapped(){
@@ -336,13 +344,48 @@ class HomeViewController: BaseViewController {
         
     }
     
+    func setupSlideshow(){
+       
+        pageIndicator.currentPageIndicatorTintColor =  Colors.accentColor()
+        pageIndicator.pageIndicatorTintColor = UIColor.black
+        pageIndicator.numberOfPages = HomeViewController.urlDetails?.banner?.count ?? 0
+        imageSlideshow.pageIndicator = pageIndicator
+        imageSlideshow.contentScaleMode = .scaleAspectFill
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        imageSlideshow.addGestureRecognizer(gestureRecognizer)
+        if HomeViewController.urlDetails?.banner?.count ?? 0 > 0{
+            var images = [InputSource]()
+            for m in HomeViewController.urlDetails?.banner ?? []{
+                if let src = KingfisherSource(urlString: m.image ?? ""){
+                    images.append(src)
+                }
+            }
+            imageSlideshow.setImageInputs(images)
+            imageSlideshow.isHidden = false
+        }
+        else{
+            imageSlideshow.isHidden = true
+        }
+        
+        
+    }
+    
+    
+    @objc func didTap(){
+        let index = pageIndicator.currentPage
+        let banner = HomeViewController.urlDetails?.banner?[index]
+        gotoWebview(url: banner?.redirectUrl ?? "")
+        
+    }
+   
+    
     
     static func showPopup(){
         let frequency = AppPreferences.getPopupFrequency()
-        let promptFrequency = Int(HomeViewController.urlDetails?.promptFrequency ?? "") ?? 0
+        let promptFrequency = HomeViewController.urlDetails?.prompt?.frequency ?? 0
         if frequency < promptFrequency{
-            let title = HomeViewController.urlDetails?.promptTitle ?? ""
-            let message = HomeViewController.urlDetails?.promptMessage ?? ""
+            let title = HomeViewController.urlDetails?.prompt?.title ?? ""
+            let message = HomeViewController.urlDetails?.prompt?.message ?? ""
             if title.count > 0{
                 Dialog.openSuccessDialog(buttonLabel: "OK".localized, title: title, msg: message, completed: {})
                 AppPreferences.setPopupFrequency(frequency: frequency+1)

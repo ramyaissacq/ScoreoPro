@@ -10,7 +10,9 @@ import WebKit
 
 class WebViewViewController: BaseViewController {
     @IBOutlet weak var webView:WKWebView!
-
+    
+    
+   var urlString = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
@@ -26,7 +28,7 @@ class WebViewViewController: BaseViewController {
     
 
     func loadUrl(){
-        if let link = URL(string:HomeViewController.urlDetails?.url ?? ""){
+        if let link = URL(string:urlString){
         let request = URLRequest(url: link)
         webView.load(request)
         }

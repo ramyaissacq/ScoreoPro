@@ -38,18 +38,16 @@
 "European Cup" = "Piala Eropa";
 "Confederations Cup" = "Piala Konfederasi";
 "America's Cup" = "Piala Amerika";
-"Welcome!" = "Selamat datang!";
 "Football" = "Sepak bola";
 "Basketball" = "Bola basket";
-"Live Score Update" = "Pembaruan Skor Langsung";
-"Match Statistics" = "Statistik Pertandingan";
-"Experience the App" = "Rasakan Aplikasinya";
-"Welcome to corescore, Your one stop shop for all for sports needs" = "Selamat datang di corescore, toko serba ada Anda untuk semua kebutuhan olahraga";
-"Keep yourself updated with all the major and minor legagues and matches around the world as well as league standings and individual player standings" = "Tetap perbarui diri Anda dengan semua liga dan pertandingan besar dan kecil di seluruh dunia serta klasemen liga dan peringkat pemain individu";
-"Weather its NBA or any other basketball league, we will keep you updated with all the coming matches and results" = "Cuaca NBA atau liga bola basket lainnya, kami akan terus memperbarui Anda dengan semua pertandingan dan hasil yang akan datang";
-"Our state of the art score keeping system will keep you updated wherever you are" = "Sistem penyimpanan skor kami yang canggih akan membuat Anda terus diperbarui di mana pun Anda berada";
-"Detail match analysis and statistics, goals scores, past results, future fixtures, fouls each and every major and minor statistics for every game are available" = "Analisis dan statistik pertandingan yang detail, skor gol, hasil sebelumnya, jadwal pertandingan mendatang, pelanggaran setiap statistik besar dan kecil untuk setiap pertandingan tersedia";
-"Enough hyping the app, Experience it yourself first hand" = "Cukup menghipnotis aplikasi, Alami sendiri secara langsung";
+"Welcome to ScorePro" = "Welcome to ScorePro";
+"Live Score Updates" = "Live Score Updates";
+"Not Just Another App" = "Not Just Another App";
+"ScorePro is your one stop shop to your world of sports. Say goodbye to googling results and keeping tabs on your favourite teams and say hello to a world of infotainment all on your fingertips! " = "ScorePro is your one stop shop to your world of sports. Say goodbye to googling results and keeping tabs on your favourite teams and say hello to a world of infotainment all on your fingertips! ";
+"Football events like you’ve never seen them before. From the leagues to the World Cup and everything in between, we have it covered" = "Football events like you’ve never seen them before. From the leagues to the World Cup and everything in between, we have it covered";
+"As it happens, because even a second too late is too late in our books. We take the match from the field and put it on your screen, so that you’re in the know as it happens" = "As it happens, because even a second too late is too late in our books. We take the match from the field and put it on your screen, so that you’re in the know as it happens";
+
+"You deserve the best and your favourite team needs your support. We get you in to the action like never before. Wanna know how your team is going to perform? No problem!" = "You deserve the best and your favourite team needs your support. We get you in to the action like never before. Wanna know how your team is going to perform? No problem!";
 "Privacy Policy" = "Kebijakan pribadi";
 "Language" = "Bahasa";
 "Share App" = "Bagikan Aplikasi";
@@ -201,3 +199,4 @@
 "Settings" = "Pengaturan";
 "Hand Picks" = "Pilihan Tangan";
 "Latest" = "Terbaru";
+"Choose your game" = "Pilih permainan Anda";

@@ -18,6 +18,10 @@ class LatestNewsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
        
+    }
+    
+    override func layoutSubviews() {
+        imgGame.roundCorners(corners: [.topLeft,.topRight], radius: 8)
        
     }
     

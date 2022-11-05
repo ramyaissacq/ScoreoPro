@@ -17,6 +17,10 @@ class NewsGamesCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+       
+    }
+    
+    override func layoutSubviews() {
         greenView.roundCorners(corners: [.bottomLeft,.bottomRight], radius: 8)
     }
     

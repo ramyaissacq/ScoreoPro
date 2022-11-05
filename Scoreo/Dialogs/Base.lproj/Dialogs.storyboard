@@ -170,6 +170,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="414"/>
                     <connections>
+                        <outlet property="lblTop" destination="Bbm-4i-U0T" id="wfb-6o-Ita"/>
                         <outlet property="tableHeight" destination="BWc-YM-g9U" id="Tjt-rG-hwi"/>
                         <outlet property="tableView" destination="NyU-v1-7XF" id="OC1-Yd-cf6"/>
                     </connections>

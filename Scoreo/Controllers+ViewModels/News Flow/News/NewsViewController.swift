@@ -20,6 +20,8 @@ class NewsViewController: BaseViewController {
     @IBOutlet weak var fixedLblHandPicks: UILabel!
     @IBOutlet weak var fixedLatest: UILabel!
     
+    //@IBOutlet weak var collectionViewNewsHeight: NSLayoutConstraint!
+    
     //MARK: - Variables
     var collectionViewNewsObserver: NSKeyValueObservation?
     var headers = ["News".localized,"Highlights".localized]
@@ -28,7 +30,6 @@ class NewsViewController: BaseViewController {
     var newsPage = 2
     var videoPage = 1
     var refreshControl:UIRefreshControl?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +81,10 @@ class NewsViewController: BaseViewController {
         collectionViewBottom.registerCell(identifier: "VideoHeighlightsCollectionViewCell")
         collectionViewBottom.registerCell(identifier: "LatestNewsCollectionViewCell")
         collectionViewBottom.registerCell(identifier: "LoaderCollectionViewCell")
-        
+//        collectionViewNewsObserver = collectionViewBottom.observe(\.contentSize, options: .new) { (_, change) in
+//            guard let height = change.newValue?.height else { return }
+//            self.collectionViewNewsHeight.constant = height
+//        }
         refreshControl = UIRefreshControl()
         refreshControl?.tintColor = .clear
         refreshControl?.addTarget(self, action: #selector(refreshViews), for: .valueChanged)

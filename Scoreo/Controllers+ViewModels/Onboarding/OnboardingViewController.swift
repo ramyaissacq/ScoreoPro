@@ -10,9 +10,9 @@ import UIKit
 class OnboardingViewController: UIViewController {
     
     var current = 0
-    var titles = ["Welcome!".localized,"Football".localized,"Live Score Update".localized,"Match Statistics".localized]
+    var titles = ["Welcome to ScorePro".localized,"Football".localized,"Live Score Updates".localized,"Not Just Another App".localized]
     
-    var descriptions = ["Welcome to corescore, Your one stop shop for all for sports needs".localized,"Keep yourself updated with all the major and minor legagues and matches around the world as well as league standings and individual player standings".localized,"Our state of the art score keeping system will keep you updated wherever you are".localized,"Detail match analysis and statistics, goals scores, past results, future fixtures, fouls each and every major and minor statistics for every game are available".localized]
+    var descriptions = ["ScorePro is your one stop shop to your world of sports. Say goodbye to googling results and keeping tabs on your favourite teams and say hello to a world of infotainment all on your fingertips! ".localized,"Football events like you’ve never seen them before. From the leagues to the World Cup and everything in between, we have it covered".localized,"As it happens, because even a second too late is too late in our books. We take the match from the field and put it on your screen, so that you’re in the know as it happens".localized,"You deserve the best and your favourite team needs your support. We get you in to the action like never before. Wanna know how your team is going to perform? No problem!".localized]
     
     @IBOutlet weak var collectionView: UICollectionView!
     

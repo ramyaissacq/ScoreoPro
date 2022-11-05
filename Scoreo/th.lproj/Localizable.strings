@@ -38,18 +38,16 @@
 "European Cup" = "ถ้วยยุโรป";
 "Confederations Cup" = "คอนเฟเดอเรชันส์ คัพ";
 "America's Cup" = "อเมริกาส์คัพ";
-"Welcome!" = "ยินดีต้อนรับ!";
 "Football" = "ฟุตบอล";
 "Basketball" = "บาสเกตบอล";
-"Live Score Update" = "อัพเดทคะแนนสด";
-"Match Statistics" = "สถิติการแข่งขัน";
-"Experience the App" = "สัมผัสประสบการณ์แอพ";
-"Welcome to corescore, Your one stop shop for all for sports needs" = "ยินดีต้อนรับสู่ corescore ร้านค้าครบวงจรสำหรับทุกความต้องการด้านกีฬาของคุณ";
-"Keep yourself updated with all the major and minor legagues and matches around the world as well as league standings and individual player standings" = "อัพเดทตัวเองด้วยลีกและการแข่งขันที่สำคัญและรองทั้งหมดทั่วโลกรวมถึงอันดับลีกและอันดับผู้เล่นแต่ละคน";
-"Weather its NBA or any other basketball league, we will keep you updated with all the coming matches and results" = "พยากรณ์อากาศของ NBA หรือลีกบาสเก็ตบอลอื่น ๆ เราจะแจ้งให้คุณทราบเกี่ยวกับการแข่งขันและผลการแข่งขันที่กำลังจะมาถึง";
-"Our state of the art score keeping system will keep you updated wherever you are" = "ระบบการเก็บคะแนนที่ทันสมัยของเราจะแจ้งให้คุณทราบทุกที่ที่คุณอยู่";
-"Detail match analysis and statistics, goals scores, past results, future fixtures, fouls each and every major and minor statistics for every game are available" = "การวิเคราะห์และสถิติการแข่งขันโดยละเอียด, คะแนนประตู, ผลการแข่งขันที่ผ่านมา, โปรแกรมการแข่งขันในอนาคต, สถิติการทำฟาวล์แต่ละรายการและทุกสถิติที่สำคัญและรองสำหรับทุกเกม";
-"Enough hyping the app, Experience it yourself first hand" = "พอ hyping แอพสัมผัสมันเองมือแรก";
+"Welcome to ScorePro" = "Welcome to ScorePro";
+"Live Score Updates" = "Live Score Updates";
+"Not Just Another App" = "Not Just Another App";
+"ScorePro is your one stop shop to your world of sports. Say goodbye to googling results and keeping tabs on your favourite teams and say hello to a world of infotainment all on your fingertips! " = "ScorePro is your one stop shop to your world of sports. Say goodbye to googling results and keeping tabs on your favourite teams and say hello to a world of infotainment all on your fingertips! ";
+"Football events like you’ve never seen them before. From the leagues to the World Cup and everything in between, we have it covered" = "Football events like you’ve never seen them before. From the leagues to the World Cup and everything in between, we have it covered";
+"As it happens, because even a second too late is too late in our books. We take the match from the field and put it on your screen, so that you’re in the know as it happens" = "As it happens, because even a second too late is too late in our books. We take the match from the field and put it on your screen, so that you’re in the know as it happens";
+
+"You deserve the best and your favourite team needs your support. We get you in to the action like never before. Wanna know how your team is going to perform? No problem!" = "You deserve the best and your favourite team needs your support. We get you in to the action like never before. Wanna know how your team is going to perform? No problem!";
 "Privacy Policy" = "นโยบายความเป็นส่วนตัว";
 "Language" = "ภาษา";
 "Share App" = "แชร์แอพ";
@@ -202,3 +200,4 @@
 "Settings" = "การตั้งค่า";
 "Hand Picks" = "หยิบมือ";
 "Latest" = "ล่าสุด";
+"Choose your game" = "เลือกเกมของคุณ";

@@ -123,7 +123,7 @@
         <!--Navigation Controller-->
         <scene sceneID="6Mo-9u-Rmz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3TE-sh-4h3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ScoresNav" automaticallyAdjustsScrollViewInsets="NO" id="3TE-sh-4h3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="home" selectedImage="SelectedHome" id="bL6-1i-jR1">
                         <color key="badgeColor" name="AccentColor"/>
                     </tabBarItem>
@@ -191,7 +191,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7JZ-06-L2W">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mK9-YS-o4H" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NewsNav" automaticallyAdjustsScrollViewInsets="NO" id="mK9-YS-o4H" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="news" selectedImage="SelectedNews" id="x4H-k1-kfn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="R7a-Px-GGi">
@@ -213,7 +213,7 @@
         <!--Navigation Controller-->
         <scene sceneID="aaS-9E-pBU">
             <objects>
-                <navigationController id="g1P-BP-KAI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingsNav" id="g1P-BP-KAI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="settings" selectedImage="SelectedSettings" id="51b-YY-3Ls"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lUa-zc-pH1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
