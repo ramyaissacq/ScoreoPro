@@ -5,6 +5,7 @@ import SwiftEntryKit
 
 class SuccessfullDialog: BaseViewController {
 
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -14,6 +15,7 @@ class SuccessfullDialog: BaseViewController {
     var buttonLabel = ""
     
     var confirmationButtonClicked:(()->Void)?
+    var tapped:(()->Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +23,14 @@ class SuccessfullDialog: BaseViewController {
         messageLabel.text = messageString
         titleLabel.text = titleString
         okButton.setTitle(buttonLabel, for: .normal)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedOnView))
+        backView.addGestureRecognizer(tap)
     }
     
+   @objc func tappedOnView(){
+        tapped?()
+        SwiftEntryKit.dismiss()
+    }
     
     
     static func instance()-> SuccessfullDialog

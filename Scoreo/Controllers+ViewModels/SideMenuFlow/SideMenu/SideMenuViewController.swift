@@ -66,13 +66,13 @@ extension SideMenuViewController:UITableViewDelegate,UITableViewDataSource{
             
             Utility.openUrl(url: URL(string: "https://scorepro4.wordpress.com/2022/11/01/privacy-policy")!)
         case 2:
-            Utility.shareAction(text: "Install ScorePro from apple appstore", url: nil, image: UIImage(named: "launch"), vc: self.parent!)
+            Utility.shareAction(text: "Install ScorePro from apple appstore", url:URL(string: "https://apps.apple.com/us/app/scorepro/id6444213187") , image: UIImage(named: "launch"), vc: self.parent!)
             
         case 3:
             sendEmail()
             
         case 4:
-            Utility.rateApp(id: "")
+            Utility.rateApp(id: "6444213187")
             
             
         default:

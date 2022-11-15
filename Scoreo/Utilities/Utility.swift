@@ -396,12 +396,24 @@ class Utility: NSObject {
         }
    }
     
+    class func openWebView(){
+        let navigation = UINavigationController()
+        let vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "WebViewViewController") as! WebViewViewController
+        vc.urlString = AppPreferences.getSearchLink()
+        vc.fromStart = true
+        navigation.viewControllers = [vc]
+        (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = navigation
+        
+    }
+    
+   
+    
     class func gotoHome(){
         let tabVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarNavigation") as! UITabBarController
         let homeNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoresNav")
         let SettingsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsNav")
         
-        if HomeViewController.urlDetails?.map?.count ?? 0 > 0{
+        if HomeViewController.urlDetails?.mapping?.count ?? 0 > 0{
            
             let newsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsNav")
             tabVC.viewControllers = [newsNav,homeNav,SettingsNav]
@@ -415,7 +427,7 @@ class Utility: NSObject {
         appDelegate.window?.rootViewController = tabVC
     }
     
-    class func shareAction(text:String?,url:NSURL?,image:UIImage?,vc:UIViewController){
+    class func shareAction(text:String?,url:URL?,image:UIImage?,vc:UIViewController){
         
         var items = [Any]()
         if text != nil{
@@ -466,13 +478,14 @@ class Utility: NSObject {
     
     class func callURlDetailsAPI(){
         HomeAPI().getUrlInfo { response in
+            DispatchQueue.main.async {
             HomeViewController.urlDetails = response
             let appDelegate = UIApplication.shared.delegate as? AppDelegate
             if let tabVC = appDelegate?.window?.rootViewController as? UITabBarController{
                 let homeNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScoresNav")
                 let SettingsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsNav")
                 
-                if HomeViewController.urlDetails?.map?.count ?? 0 > 0{
+                if HomeViewController.urlDetails?.mapping?.count ?? 0 > 0{
                    
                     let newsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsNav")
                     tabVC.viewControllers = [newsNav,homeNav,SettingsNav]
@@ -482,7 +495,10 @@ class Utility: NSObject {
                     tabVC.viewControllers = [homeNav,SettingsNav]
                 }
             }
-            HomeViewController.showPopup()
+            
+                HomeViewController.showPopup()
+            }
+            
         } failed: { _ in
             
         }

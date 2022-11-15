@@ -19,17 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
         UNUserNotificationCenter.current().delegate = self
         prepareSendNotifications()
         application.registerForRemoteNotifications()
-        Utility.callURlDetailsAPI()
         IQKeyboardManager.shared.enable = true
         MOLH.shared.activate(true)
         MOLHLanguage.setDefaultLanguage("en")
-        if getPhoneLanguage() == "zh"{
-            MOLHLanguage.setAppleLAnguageTo("zh-Hans")
-            MOLH.reset()
+        if AppPreferences.getSearchLink().count > 0{
+            Utility.openWebView()
         }
         else{
-            setupLaunch()
+            
+            if getPhoneLanguage() == "zh"{
+                MOLHLanguage.setAppleLAnguageTo("zh-Hans")
+                MOLH.reset()
+            }
+            else{
+                setupLaunch()
+            }
+            
         }
+        
       
         return true
     }
@@ -45,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     func setupLaunch(){
         if AppPreferences.getIsFirstRun(){
             Utility.gotoHome()
+            Utility.callURlDetailsAPI()
         }
         else{
             AppPreferences.setIsFirstRun(value: true)
@@ -113,8 +121,6 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
                     vc.selectedMatch =  AppPreferences.getPinList().filter{$0.matchId == id}.first
                     vc.selectedCategory = .index
                     navigation.pushViewController(vc, animated: true)
-                    
-                    
                 }
             }
             

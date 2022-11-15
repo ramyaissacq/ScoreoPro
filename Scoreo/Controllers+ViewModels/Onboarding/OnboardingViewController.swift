@@ -51,6 +51,7 @@ class OnboardingViewController: UIViewController {
         }
         else{
             Utility.gotoHome()
+            Utility.callURlDetailsAPI()
         }
     }
     

@@ -349,6 +349,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="252"/>
                     <connections>
+                        <outlet property="backView" destination="4Dd-oZ-E14" id="o0I-eH-tBk"/>
                         <outlet property="messageLabel" destination="LAE-xu-kDb" id="iao-uM-d3B"/>
                         <outlet property="okButton" destination="I9w-sx-h2e" id="k1n-QK-0y2"/>
                         <outlet property="titleLabel" destination="fHc-cw-ICE" id="Bg7-s3-cTK"/>

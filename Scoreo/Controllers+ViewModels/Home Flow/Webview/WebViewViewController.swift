@@ -13,6 +13,7 @@ class WebViewViewController: BaseViewController {
     
     
    var urlString = ""
+    var fromStart = false
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
@@ -22,8 +23,25 @@ class WebViewViewController: BaseViewController {
     }
     
     func initialSettings(){
+        if fromStart == false{
         setBackButton()
+        }
+        else{
+            setupSpecialButtons()
+        }
         loadUrl()
+    }
+    
+    func setupSpecialButtons(){
+        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        btn.setImage(UIImage(named: "back"), for: .normal)
+        btn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
+    }
+    
+    @objc func backAction(){
+        Utility.gotoHome()
+        Utility.callURlDetailsAPI()
     }
     
 

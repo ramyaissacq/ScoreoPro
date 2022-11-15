@@ -279,6 +279,7 @@
 		ADC7FD742903E8D600237465 /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD662903E8D600237465 /* NunitoSans-Regular.ttf */; };
 		ADC7FD752903E8D600237465 /* NunitoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD672903E8D600237465 /* NunitoSans-BoldItalic.ttf */; };
 		ADC7FD762903E8D600237465 /* NunitoSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADC7FD682903E8D600237465 /* NunitoSans-ExtraLight.ttf */; };
+		ADCE0B932923BD4B0016D02D /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCE0B922923BD4B0016D02D /* Mapping.swift */; };
 		ADD46A74290ABC1900D94DA6 /* NewsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD46A73290ABC1900D94DA6 /* NewsSearchViewController.swift */; };
 		ADDFA4A928FAA36E00CCF764 /* SportsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADDFA4A828FAA36E00CCF764 /* SportsView.xib */; };
 		ADDFA4AB28FAA39100CCF764 /* SportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDFA4AA28FAA39100CCF764 /* SportsView.swift */; };
@@ -611,6 +612,7 @@
 		ADC7FD662903E8D600237465 /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
 		ADC7FD672903E8D600237465 /* NunitoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		ADC7FD682903E8D600237465 /* NunitoSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		ADCE0B922923BD4B0016D02D /* Mapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
 		ADD46A73290ABC1900D94DA6 /* NewsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSearchViewController.swift; sourceTree = "<group>"; };
 		ADDFA4A828FAA36E00CCF764 /* SportsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SportsView.xib; sourceTree = "<group>"; };
 		ADDFA4AA28FAA39100CCF764 /* SportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsView.swift; sourceTree = "<group>"; };
@@ -1358,6 +1360,7 @@
 			children = (
 				AD2C02F729153FF600329F4E /* Prompt.swift */,
 				AD62DBDF28F6A09400730317 /* UrlDetails.swift */,
+				ADCE0B922923BD4B0016D02D /* Mapping.swift */,
 				AD2C02F929153FFC00329F4E /* Region.swift */,
 				AD8278492913D3DC005D6AF4 /* Banner.swift */,
 			);
@@ -2334,6 +2337,7 @@
 				AD62DCD528F6A09500730317 /* OnboardingCollectionViewCell.swift in Sources */,
 				AD62DD0F28F6A09500730317 /* AwayHalfStandings.swift in Sources */,
 				AD62DD2228F6A09500730317 /* NewsDetailsViewController.swift in Sources */,
+				ADCE0B932923BD4B0016D02D /* Mapping.swift in Sources */,
 				AD62DCC028F6A09500730317 /* ResultCollectionViewCell.swift in Sources */,
 				AD62DCE128F6A09500730317 /* BasketballAnalysisList.swift in Sources */,
 				AD62DCDE28F6A09500730317 /* Dialog.swift in Sources */,
@@ -2763,8 +2767,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H8U32S8BDV;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2782,10 +2786,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.score.pro.ball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = ScoreProDistribution;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2798,8 +2802,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H8U32S8BDV;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2817,10 +2821,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.score.pro.ball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = ScoreProDistribution;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

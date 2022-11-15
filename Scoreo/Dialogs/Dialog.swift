@@ -64,7 +64,7 @@ class Dialog: NSObject {
     
  
     
-    class func openSuccessDialog(buttonLabel :String,title :String,msg :String, completed : @escaping ()->()){
+    class func openSuccessDialog(buttonLabel :String,title :String,msg :String, completed : @escaping ()->(),tapped : @escaping ()->()){
         let vc = SuccessfullDialog.instance()
         vc.buttonLabel = buttonLabel
         vc.messageString = msg
@@ -72,7 +72,7 @@ class Dialog: NSObject {
         vc.confirmationButtonClicked = {
             completed()
         }
-        
+        vc.tapped = tapped
         openViewControllerAsDialog(viewController: vc, name: nil)
     }
     

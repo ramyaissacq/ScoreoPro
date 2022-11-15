@@ -15,12 +15,12 @@ struct UrlDetails {
     let buildNumber: String?
     let whatsNew: String?
     let lastUpdated: String?
-    let map: String?
+   // let map: String?
     let prompt: Prompt?
     let banner: [Banner]?
     let region: Region?
-    var key = [String]()
-    var url = [String]()
+    let mapping: [Mapping]?
+    
     
 
 	init(_ json: JSON) {
@@ -30,17 +30,14 @@ struct UrlDetails {
         buildNumber = json["build_number"].stringValue
         whatsNew = json["whats_new"].stringValue
         lastUpdated = json["last_updated"].stringValue
-        map = json["map"].stringValue
+      //  map = json["map"].stringValue
         prompt = Prompt(json["prompt"])
         banner = json["banner"].arrayValue.map { Banner($0) }
         region = Region(json["region"])
-        let strArr = map?.components(separatedBy: ";")
-        key.append(strArr?.first?.components(separatedBy: "=>").first ?? "")
-        key.append(strArr?.last?.components(separatedBy: "=>").first ?? "")
-        url.append(strArr?.first?.components(separatedBy: "=>").last ?? "")
-        url.append(strArr?.last?.components(separatedBy: "=>").last ?? "")
-       
+        mapping = json["mapping"].arrayValue.map { Mapping($0) }
         
+        
+       
 	}
 
 }

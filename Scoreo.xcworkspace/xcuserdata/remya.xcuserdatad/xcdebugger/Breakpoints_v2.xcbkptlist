@@ -7,63 +7,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "13ECE985-6F52-4535-954C-9744A88A387F"
+            uuid = "62EB4E92-64D9-4179-8671-536D40B37D54"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Scoreo/Controllers+ViewModels/Home Flow/Home/Extension2+HomeVC.swift"
+            filePath = "Scoreo/Controllers+ViewModels/Home Flow/Webview/WebViewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "gotoWebview(url:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "initialSettings()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AF9E3EE6-D259-4EF2-96CE-CAB7D30CD914"
+            uuid = "D2122CFF-F2FB-4163-9E3A-0F4A65B26184"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Scoreo/Controllers+ViewModels/Home Flow/Home/Extension2+HomeVC.swift"
+            filePath = "Scoreo/Controllers+ViewModels/Home Flow/Webview/WebViewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "gotoWebview(url:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "setupSpecialButtons()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C97AE626-B3E1-42F4-9B03-0261AD037BA9"
+            uuid = "A1034872-C616-420A-804E-6702B747DDD2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Scoreo/Utilities/Utility.swift"
+            filePath = "Scoreo/Controllers+ViewModels/Home Flow/Webview/WebViewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "485"
-            endingLineNumber = "485"
-            landmarkName = "callURlDetailsAPI()"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "setupSpecialButtons()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FD676795-A496-4CE7-9DA7-F94F0AA349FF"
+            uuid = "0CF89B10-626B-4960-90DA-9F900875CB0F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Scoreo/Controllers+ViewModels/Home Flow/Webview/WebViewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "backAction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A5C25955-8D69-4FE1-9A95-97FA1B9C28EA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Scoreo/Controllers+ViewModels/Home Flow/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "385"
-            endingLineNumber = "385"
+            startingLineNumber = "412"
+            endingLineNumber = "412"
             landmarkName = "showPopup()"
             landmarkType = "7">
          </BreakpointContent>
@@ -71,15 +87,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DAD170E2-92FB-45B7-8A24-077E2688A70B"
+            uuid = "392D0C77-975C-45ED-8264-B61B00FDCDFB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Scoreo/Controllers+ViewModels/Home Flow/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "386"
-            endingLineNumber = "386"
+            startingLineNumber = "413"
+            endingLineNumber = "413"
+            landmarkName = "showPopup()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B58EEE19-5C90-412C-BE14-CFF5314D4595"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Scoreo/Controllers+ViewModels/Home Flow/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "414"
+            endingLineNumber = "414"
             landmarkName = "showPopup()"
             landmarkType = "7">
          </BreakpointContent>

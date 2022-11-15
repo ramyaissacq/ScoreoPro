@@ -53,20 +53,12 @@ class ScoresTableViewCell: UITableViewCell {
     @IBOutlet weak var quartersStack: UIStackView!
     @IBOutlet weak var tableViewQuarters: UITableView!
     @IBOutlet weak var separator2: UIView!
-    
     @IBOutlet weak var fixedIndex: UILabel!
-    
     @IBOutlet weak var fixedAnalysis: UILabel!
-    
     @IBOutlet weak var fixedEvent: UILabel!
-    
-    
     @IBOutlet weak var fixedLeague: UILabel!
     @IBOutlet weak var fixedBriefing: UILabel!
-    
     @IBOutlet weak var homeCardStack: UIStackView!
-    
-    
     @IBOutlet weak var awayCardStack: UIStackView!
     
     //MARK: - Variables
@@ -104,6 +96,7 @@ class ScoresTableViewCell: UITableViewCell {
         
         let tapLong = UILongPressGestureRecognizer(target: self, action: #selector(actionLongPress))
         self.addGestureRecognizer(tapLong)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -113,6 +106,7 @@ class ScoresTableViewCell: UITableViewCell {
     }
     
     func setupLocalisation(){
+        
         fixedIndex.text = "Index".localized
         fixedAnalysis.text = "Analysis".localized
         fixedLeague.text = "League".localized

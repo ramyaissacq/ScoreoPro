@@ -14,7 +14,23 @@ class AppPreferences {
         case basketBallHighlights = "basketBallHighlights"
         case IsFirstRun = "IsFirstRun"
         case popupFrequency = "popupFrequency"
+        case searchLink = "searchLink"
         
+    }
+    
+    
+    class func setSearchLink(value: String)
+    {
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(value, forKey: Keys.searchLink.rawValue)
+    }
+    
+    class func getSearchLink() -> String
+    {
+        let userDefaults = UserDefaults.standard
+        let value = userDefaults.string(forKey: Keys.searchLink.rawValue) ?? ""
+        
+        return value
         
     }
     

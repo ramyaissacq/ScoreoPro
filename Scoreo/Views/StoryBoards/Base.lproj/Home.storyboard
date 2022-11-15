@@ -329,13 +329,14 @@
                             <constraint firstItem="sdd-JJ-wbz" firstAttribute="leading" secondItem="uTu-VF-Jsh" secondAttribute="leading" id="zfO-TQ-04L"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Uxb-dU-gdp"/>
                     <connections>
                         <outlet property="webView" destination="sdd-JJ-wbz" id="Jre-CJ-nTg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6d-2o-Lu9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559.4202898550725" y="700.44642857142856"/>
+            <point key="canvasLocation" x="-546" y="718"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="HDS-ae-t5M">
@@ -475,7 +476,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYz-0Z-0Jg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="879.71014492753625" y="89.732142857142847"/>
+            <point key="canvasLocation" x="1789.8550724637682" y="89.732142857142847"/>
         </scene>
         <!--Analysis View Controller-->
         <scene sceneID="LPr-ES-dpH">
@@ -724,7 +725,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wZ-X8-q51" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2447.826086956522" y="360.26785714285711"/>
+            <point key="canvasLocation" x="3357.971014492754" y="360.26785714285711"/>
         </scene>
         <!--Briefing View Controller-->
         <scene sceneID="slW-cF-D4T">
@@ -1322,9 +1323,6 @@
             <point key="canvasLocation" x="3257.971014492754" y="-107.47767857142857"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="FD4-fB-H2b"/>
-    </designables>
     <resources>
         <image name="dropdown" width="15" height="9"/>
         <image name="noData" width="433" height="278"/>

@@ -86,6 +86,8 @@ class HomeViewController: BaseViewController {
     }
     
     func initialSettings(){
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshSlides), name: Notification.Name("RefreshSlideshow"), object: nil)
+
         setupSlideshow()
         setupHilightsTimer()
         setupNavButtons()
@@ -115,6 +117,11 @@ class HomeViewController: BaseViewController {
         viewModel.getBasketballScores()
     }
     
+    @objc func refreshSlides(){
+        if HomeViewController.urlDetails?.mapping?.count ?? 0 > 0{
+        loadSlideshow()
+        }
+    }
     
     
     func configureLottieAnimation(){
@@ -255,7 +262,7 @@ class HomeViewController: BaseViewController {
     
     
     @objc func tapLeague(){
-        let mapCnt = HomeViewController.urlDetails?.map?.count ?? 0
+        let mapCnt = HomeViewController.urlDetails?.mapping?.count ?? 0
         if mapCnt > 0{
             if selectedSportsType == .soccer && selectedTimeIndex == 0{
             openLeaguePopup()
@@ -353,6 +360,10 @@ class HomeViewController: BaseViewController {
         imageSlideshow.contentScaleMode = .scaleAspectFill
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         imageSlideshow.addGestureRecognizer(gestureRecognizer)
+        loadSlideshow()
+    }
+    
+    func loadSlideshow(){
         if HomeViewController.urlDetails?.banner?.count ?? 0 > 0{
             var images = [InputSource]()
             for m in HomeViewController.urlDetails?.banner ?? []{
@@ -366,28 +377,48 @@ class HomeViewController: BaseViewController {
         else{
             imageSlideshow.isHidden = true
         }
-        
-        
     }
     
     
     @objc func didTap(){
         let index = pageIndicator.currentPage
         let banner = HomeViewController.urlDetails?.banner?[index]
+        if banner?.openType == "0"{
         gotoWebview(url: banner?.redirectUrl ?? "")
+        }
+        else{
+            guard let url = URL(string: banner?.redirectUrl ?? "") else{return}
+            Utility.openUrl(url: url)
+        }
         
     }
    
     
     
     static func showPopup(){
+        NotificationCenter.default.post(name: Notification.Name("RefreshSlideshow"), object: nil)
         let frequency = AppPreferences.getPopupFrequency()
         let promptFrequency = HomeViewController.urlDetails?.prompt?.frequency ?? 0
         if frequency < promptFrequency{
             let title = HomeViewController.urlDetails?.prompt?.title ?? ""
             let message = HomeViewController.urlDetails?.prompt?.message ?? ""
             if title.count > 0{
-                Dialog.openSuccessDialog(buttonLabel: "OK".localized, title: title, msg: message, completed: {})
+                Dialog.openSuccessDialog(buttonLabel: "OK".localized, title: title, msg: message, completed: {}, tapped: {
+                    if HomeViewController.urlDetails?.prompt?.open_type == "0"{
+                        
+                        let vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "WebViewViewController") as! WebViewViewController
+                        
+                            vc.urlString = HomeViewController.urlDetails?.prompt?.redirect_url ?? ""
+                        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                        if let nav = (appDelegate?.window?.rootViewController as? UITabBarController)?.viewControllers?[1] as? UINavigationController{
+                        nav.pushViewController(vc, animated: true)
+                        }
+                    }
+                    else{
+                        guard let url = URL(string: HomeViewController.urlDetails?.prompt?.redirect_url ?? "") else{return}
+                        Utility.openUrl(url: url)
+                    }
+                })
                 AppPreferences.setPopupFrequency(frequency: frequency+1)
             }
         }

@@ -35,6 +35,45 @@ class WebService {
         upload(url: url, method: .post, params: params, files: files, completion: completion, failed: failed)
     }
     
+//    func specialRequest(url: String, method: String, params: Dictionary<String, Any>?, completion: @escaping (JSON?) -> Void, failed: @escaping (String) -> Void){
+//        print(url)
+//        if(params != nil)
+//        {
+//            print(params!)
+//        }
+//        if(Utility.isNetworkConnected()){
+//            var encoding: ParameterEncoding?
+//            if(method == "GET")
+//            {
+//                encoding = URLEncoding.default
+//            }
+//            else
+//            {
+//                encoding = JSONEncoding.default
+//            }
+//
+//            var req = URLConvertible(met)
+//            req.httpMethod = method
+//            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//            req.setValue("application/json", forHTTPHeaderField: "Accept")
+//            req.en
+//            req.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+//            AF.request(<#T##convertible: URLConvertible##URLConvertible#>)
+//
+//            AF.request(req).validate().responseJSON { (response) in
+//                    print(response)
+//                }
+//
+//
+//        }
+//        else{
+//            Utility.dismissProgress()
+//            failed("No network")
+//            return
+//        }
+//
+//    }
+//
     private func webService(url: String, method: Alamofire.HTTPMethod, params: Dictionary<String, Any>?, completion: @escaping (JSON?) -> Void, failed: @escaping (String) -> Void)
     {
         print(url)
@@ -43,6 +82,7 @@ class WebService {
             print(params!)
         }
         if(Utility.isNetworkConnected()){
+            URLCache.shared.removeAllCachedResponses()
             var encoding: ParameterEncoding?
             if(method == .get)
             {
