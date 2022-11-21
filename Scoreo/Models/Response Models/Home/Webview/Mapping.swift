@@ -9,14 +9,29 @@ import SwiftyJSON
 
 struct Mapping {
 
-	let keyword: String?
-	let redirectUrl: String?
-	let openType: String?
+	var keyword: String?
+	var redirectUrl: String?
+	var openType: String?
+    
+    init(){
+        keyword = ""
+        redirectUrl = ""
+        openType = ""
+    }
+
 
 	init(_ json: JSON) {
 		keyword = json["keyword"].stringValue
 		redirectUrl = json["redirect_url"].stringValue
 		openType = json["open_type"].stringValue
 	}
+    
+    func toDictionary() -> [String:Any]{
+        var dict = [String:Any]()
+        dict["keyword"] = keyword ?? ""
+        dict["redirect_url"] = redirectUrl ?? ""
+        dict["open_type"] = openType ?? ""
+        return dict
+    }
 
 }

@@ -12,7 +12,7 @@ import MOLH
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     var window: UIWindow?
-    
+    var load = 1
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,28 +22,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
         IQKeyboardManager.shared.enable = true
         MOLH.shared.activate(true)
         MOLHLanguage.setDefaultLanguage("en")
-        if AppPreferences.getSearchLink().count > 0{
-            Utility.openWebView()
-        }
-        else{
-            
-            if getPhoneLanguage() == "zh"{
-                MOLHLanguage.setAppleLAnguageTo("zh-Hans")
-                MOLH.reset()
-            }
-            else{
-                setupLaunch()
-            }
-            
-        }
-        
-      
+        setRoot()
+       // initialLoad()
+  
         return true
     }
+    
     
     func applicationWillTerminate(_ application: UIApplication) {
         
     }
+    
+    func setRoot(){
+        let vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "LaunchesViewController")
+        window?.rootViewController = vc
+        
+    }
+    
     
     func reset() {
         setupLaunch()
@@ -52,7 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
     func setupLaunch(){
         if AppPreferences.getIsFirstRun(){
             Utility.gotoHome()
+            if load == 1{
             Utility.callURlDetailsAPI()
+                load = 0
+            }
         }
         else{
             AppPreferences.setIsFirstRun(value: true)
@@ -73,9 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
         
     }
     
-    
-    
-    
+  
 }
 
 

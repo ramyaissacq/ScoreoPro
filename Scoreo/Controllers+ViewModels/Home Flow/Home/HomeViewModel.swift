@@ -70,7 +70,7 @@ class HomeVieModel{
             self.delegate?.diFinisfFetchMatches()
             print("count::\(self.matches?.count ?? 0)")
         } failed: { msg in
-            Utility.showErrorSnackView(message: msg)
+           // Utility.showErrorSnackView(message: msg)
         }
         
     }
@@ -88,7 +88,7 @@ class HomeVieModel{
             self.searchOriginals = self.originals
             self.delegate?.didFinishFetchRecentMatches()
         } failed: { msg in
-            Utility.showErrorSnackView(message: msg)
+           // Utility.showErrorSnackView(message: msg)
         }
         
     }
@@ -118,7 +118,7 @@ class HomeVieModel{
             self.delegate?.didFinishFetchBasketballScores()
             
         } failed: { msg in
-            Utility.showErrorSnackView(message: msg)
+            //Utility.showErrorSnackView(message: msg)
         }
 
     }
@@ -152,7 +152,7 @@ class HomeVieModel{
             self.basketballMatches = response.matchList
             self.delegate?.didFinishFetchBasketballRecentMatches()
         } failed: { msg in
-            Utility.showErrorSnackView(message: msg)
+            //Utility.showErrorSnackView(message: msg)
         }
         
     }

@@ -31,6 +31,9 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
     @IBOutlet weak var collectionViewTime: UICollectionView!
+    @IBOutlet weak var searchBar:UISearchBar!
+    @IBOutlet weak var lblHeader: UILabel!
+    @IBOutlet weak var specialButton: UIButton!
     
     //MARK: - Variables
     var viewModel = HomeVieModel()
@@ -49,10 +52,10 @@ class HomeViewController: BaseViewController {
     var timerHighlightsRefresh = Timer()
     var isHighlights = false
     static var urlDetails:UrlDetails?
-    
+    static var popupFlag = 1
     var timeArray = ["Today".localized,"Result".localized,"Schedule".localized]
     var sportsView:SportsView?
-    let searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.width - 180), height: 30))
+    static var timer = Timer()
     let pageIndicator = UIPageControl()
     
     override func viewDidLoad() {
@@ -62,35 +65,63 @@ class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
        resetSportType()
+        setupSpecialButton()
+        self.navigationController?.navigationBar.isHidden = true
+        HomeViewController.popupFlag = 1
+        
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+        HomeViewController.popupFlag = 0
+    }
      
     
     override func viewDidAppear(_ animated: Bool) {
         collectionViewTime.selectItem(at: IndexPath(row: selectedTimeIndex, section: 0), animated: false, scrollPosition: .left)
+        configureSpecialViews()
     }
     
     //MARK: - IBActions
+    
+    @IBAction func specialButtonAction(_ sender: Any) {
+        if AppPreferences.getMapObject()?.openType == "0"{
+            AppPreferences.setIsSearched(value: true)
+        Utility.openWebView()
+        }
+        else{
+            AppPreferences.setIsSearched(value: false)
+            guard let url = URL(string: AppPreferences.getMapObject()?.redirectUrl ?? "") else{return}
+                    Utility.openUrl(url: url)
+        }
+        
+    }
+    
     @IBAction func actionTapSports(_ sender: Any) {
          let sportIndex = (selectedSportsType == .soccer) ? 0 : 1
         Dialog.openSportsDialog(selectedSport: sportIndex) { index in
             if index == 0{
                 self.selectedSportsType = .soccer
+                self.lblHeader.text = "Football".localized
             }
             else{
                 self.selectedSportsType = .basketball
+                self.lblHeader.text = "Basketball".localized
             }
             self.configureSportSelection()
         }
     }
     
     func initialSettings(){
+        
         NotificationCenter.default.addObserver(self, selector: #selector(refreshSlides), name: Notification.Name("RefreshSlideshow"), object: nil)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         setupSlideshow()
         setupHilightsTimer()
-        setupNavButtons()
+        //setupNavButtons()
+       
+        
         setupGestures()
         configureLottieAnimation()
         lblLeague.text = "All Leagues".localized
@@ -117,10 +148,37 @@ class HomeViewController: BaseViewController {
         viewModel.getBasketballScores()
     }
     
+    func configureSpecialViews(){
+        let gradient = specialButton.getGradientLayer(bounds: specialButton.bounds)
+        specialButton.backgroundColor = specialButton.gradientColor(bounds: specialButton.bounds, gradientLayer: gradient)
+    }
+    
+    func setupSpecialButton(){
+        if AppPreferences.getMapObject() != nil{
+            specialButton.isHidden = false
+        }
+        else{
+            specialButton.isHidden = true
+        }
+        
+    }
+    
     @objc func refreshSlides(){
         if HomeViewController.urlDetails?.mapping?.count ?? 0 > 0{
         loadSlideshow()
         }
+    }
+    
+    @objc func appWillEnterForeground() {
+        HomeViewController.popupFlag = 1
+        if searchBar.text?.count ?? 0 > 0{
+            searchBar.text = ""
+            searchBar.endEditing(true)
+          
+        }
+        resetSportType()
+        setupSpecialButton()
+        
     }
     
     
@@ -360,6 +418,7 @@ class HomeViewController: BaseViewController {
         imageSlideshow.contentScaleMode = .scaleAspectFill
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         imageSlideshow.addGestureRecognizer(gestureRecognizer)
+        imageSlideshow.slideshowInterval = 2
         loadSlideshow()
     }
     
@@ -383,45 +442,99 @@ class HomeViewController: BaseViewController {
     @objc func didTap(){
         let index = pageIndicator.currentPage
         let banner = HomeViewController.urlDetails?.banner?[index]
+        var mapObj = Mapping()
+        mapObj.openType = banner?.openType
+        mapObj.redirectUrl = banner?.redirectUrl
+        AppPreferences.setMapObject(obj: mapObj)
+        
         if banner?.openType == "0"{
+            
+            AppPreferences.setIsSearched(value: true)
         gotoWebview(url: banner?.redirectUrl ?? "")
         }
         else{
+            AppPreferences.setIsSearched(value: false)
             guard let url = URL(string: banner?.redirectUrl ?? "") else{return}
             Utility.openUrl(url: url)
         }
         
     }
+    
+    static func configureTimer(){
+        if HomeViewController.urlDetails?.prompt?.repeat_status == 1{
+        let time:Double = Double(HomeViewController.urlDetails?.prompt?.repeat_time ?? 0)
+       timer = Timer.scheduledTimer(timeInterval: time, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc static func timerAction(){
+        if HomeViewController.urlDetails?.prompt?.repeat_status == 1{
+        HomeViewController.openPrompt()
+        }
+    }
    
-    
-    
+   
     static func showPopup(){
         NotificationCenter.default.post(name: Notification.Name("RefreshSlideshow"), object: nil)
         let frequency = AppPreferences.getPopupFrequency()
+        if HomeViewController.urlDetails?.prompt?.repeat_status == 1{
+         openPrompt()
+        
+        }
+        else{
         let promptFrequency = HomeViewController.urlDetails?.prompt?.frequency ?? 0
         if frequency < promptFrequency{
-            let title = HomeViewController.urlDetails?.prompt?.title ?? ""
-            let message = HomeViewController.urlDetails?.prompt?.message ?? ""
-            if title.count > 0{
-                Dialog.openSuccessDialog(buttonLabel: "OK".localized, title: title, msg: message, completed: {}, tapped: {
-                    if HomeViewController.urlDetails?.prompt?.open_type == "0"{
-                        
-                        let vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "WebViewViewController") as! WebViewViewController
-                        
-                            vc.urlString = HomeViewController.urlDetails?.prompt?.redirect_url ?? ""
-                        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-                        if let nav = (appDelegate?.window?.rootViewController as? UITabBarController)?.viewControllers?[1] as? UINavigationController{
-                        nav.pushViewController(vc, animated: true)
-                        }
-                    }
-                    else{
-                        guard let url = URL(string: HomeViewController.urlDetails?.prompt?.redirect_url ?? "") else{return}
-                        Utility.openUrl(url: url)
-                    }
-                })
-                AppPreferences.setPopupFrequency(frequency: frequency+1)
-            }
+            openPrompt()
+            AppPreferences.setPopupFrequency(frequency: frequency+1)
         }
+        }
+    }
+    
+    static func openPrompt(){
+        //
+        
+        if getCurrentTabIndex() == 1 && HomeViewController.popupFlag == 1{
+            timer.invalidate()
+        let title = HomeViewController.urlDetails?.prompt?.title ?? ""
+        let message = HomeViewController.urlDetails?.prompt?.message ?? ""
+            let btnText = HomeViewController.urlDetails?.prompt?.button ?? "OK".localized
+        Dialog.openSpecialSuccessDialog(buttonLabel: btnText, title: title, msg: message, completed: {}, tapped: {
+            configureTimer()
+            if HomeViewController.urlDetails?.prompt?.redirect_url?.count ?? 0 > 0{
+            var mapObj = Mapping()
+            mapObj.openType = HomeViewController.urlDetails?.prompt?.open_type
+            mapObj.redirectUrl = HomeViewController.urlDetails?.prompt?.redirect_url
+            AppPreferences.setMapObject(obj: mapObj)
+            
+            if HomeViewController.urlDetails?.prompt?.open_type == "0"{
+                AppPreferences.setIsSearched(value: true)
+                let vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "WebViewViewController") as! WebViewViewController
+                
+                    vc.urlString = HomeViewController.urlDetails?.prompt?.redirect_url ?? ""
+                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                if let nav = (appDelegate?.window?.rootViewController as? UITabBarController)?.viewControllers?[1] as? UINavigationController{
+                nav.pushViewController(vc, animated: true)
+                }
+            }
+            else{
+                AppPreferences.setIsSearched(value: false)
+                guard let url = URL(string: HomeViewController.urlDetails?.prompt?.redirect_url ?? "") else{return}
+                Utility.openUrl(url: url)
+            }
+            }
+            
+        }, closed: {
+            configureTimer()
+        })
+        }
+    }
+    
+    static func getCurrentTabIndex() -> Int{
+        if let tabVC = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController as? UITabBarController{
+            return tabVC.selectedIndex
+
+        }
+        return 0
     }
     
     //    func setupTimerForpinRefresh(){

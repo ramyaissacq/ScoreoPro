@@ -399,8 +399,8 @@ class Utility: NSObject {
     class func openWebView(){
         let navigation = UINavigationController()
         let vc = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "WebViewViewController") as! WebViewViewController
-        vc.urlString = AppPreferences.getSearchLink()
-        vc.fromStart = true
+        vc.urlString = AppPreferences.getMapObject()?.redirectUrl ?? ""
+        //vc.fromStart = true
         navigation.viewControllers = [vc]
         (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = navigation
         
@@ -418,6 +418,7 @@ class Utility: NSObject {
             let newsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsNav")
             tabVC.viewControllers = [newsNav,homeNav,SettingsNav]
             tabVC.selectedIndex = 1
+            HomeViewController.popupFlag = 1
         }
         else{
             tabVC.viewControllers = [homeNav,SettingsNav]
@@ -490,6 +491,7 @@ class Utility: NSObject {
                     let newsNav =  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsNav")
                     tabVC.viewControllers = [newsNav,homeNav,SettingsNav]
                     tabVC.selectedIndex = 1
+                    HomeViewController.popupFlag = 1
                 }
                 else{
                     tabVC.viewControllers = [homeNav,SettingsNav]
@@ -504,6 +506,8 @@ class Utility: NSObject {
         }
 
     }
+    
+   
     
   class  func getLang(){
         var locale = NSLocale.current.languageCode!

@@ -4,7 +4,7 @@ import UIKit
 import SwiftyJSON
 
 class AppPreferences {
-    private enum Keys : String {
+     enum Keys : String {
         
         //        case token = "Token"
         //        case userData = "userData"
@@ -14,25 +14,45 @@ class AppPreferences {
         case basketBallHighlights = "basketBallHighlights"
         case IsFirstRun = "IsFirstRun"
         case popupFrequency = "popupFrequency"
-        case searchLink = "searchLink"
+        case mapData = "mapData"
+         case isSearched = "isSearched"
         
     }
     
     
-    class func setSearchLink(value: String)
+    class func setIsSearched(value: Bool)
     {
         let userDefaults = UserDefaults.standard
-        userDefaults.setValue(value, forKey: Keys.searchLink.rawValue)
+        userDefaults.setValue(value, forKey: Keys.isSearched.rawValue)
     }
     
-    class func getSearchLink() -> String
+    class func getIsSearched() -> Bool
     {
         let userDefaults = UserDefaults.standard
-        let value = userDefaults.string(forKey: Keys.searchLink.rawValue) ?? ""
+        let value = userDefaults.bool(forKey: Keys.isSearched.rawValue)
         
         return value
         
     }
+    
+    
+    class func setMapObject(obj:Mapping){
+        
+     let userDefaults = UserDefaults.standard
+     userDefaults.set(obj.toDictionary(), forKey: Keys.mapData.rawValue)
+        
+         }
+    
+   
+       class func getMapObject() -> Mapping?{
+           let userDefaults = UserDefaults.standard
+           if let mapData = userDefaults.object(forKey: Keys.mapData.rawValue) as? [String:Any]
+           {
+               let mapDataModel = Mapping.init(JSON(mapData))
+               return mapDataModel
+           }
+           return nil
+       }
     
     class func addToHighlights(obj:MatchList)
     {
@@ -179,6 +199,12 @@ class AppPreferences {
         let value = userDefaults.integer(forKey: Keys.popupFrequency.rawValue)
         
         return value
+        
+    }
+    
+    class func removePreferenceData(key:Keys.RawValue){
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: key)
         
     }
     

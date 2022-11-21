@@ -16,6 +16,7 @@ class SuccessfullDialog: BaseViewController {
     
     var confirmationButtonClicked:(()->Void)?
     var tapped:(()->Void)?
+    var closed:(()->Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,8 @@ class SuccessfullDialog: BaseViewController {
     }
     
    @objc func tappedOnView(){
-        tapped?()
-        SwiftEntryKit.dismiss()
+//        tapped?()
+//        SwiftEntryKit.dismiss()
     }
     
     
@@ -40,10 +41,15 @@ class SuccessfullDialog: BaseViewController {
         return vc
     }
     
-
+    @IBAction func actionClose(_ sender: Any) {
+        SwiftEntryKit.dismiss()
+        closed?()
+    }
+    
     @IBAction func okButtonClicked(_ sender: Any) {
         SwiftEntryKit.dismiss()
         confirmationButtonClicked?()
     }
+    
     
 }

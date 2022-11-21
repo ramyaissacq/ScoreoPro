@@ -11,22 +11,21 @@ import WebKit
 class WebViewViewController: BaseViewController {
     @IBOutlet weak var webView:WKWebView!
     
-    
    var urlString = ""
-    var fromStart = false
+    //var fromStart = false
+    var specialStart = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
-        
-
-        // Do any additional setup after loading the view.
     }
     
     func initialSettings(){
-        if fromStart == false{
-        setBackButton()
+        if specialStart {
+            self.navigationController?.navigationBar.isHidden = true
         }
         else{
+        
             setupSpecialButtons()
         }
         loadUrl()
@@ -40,6 +39,7 @@ class WebViewViewController: BaseViewController {
     }
     
     @objc func backAction(){
+        AppPreferences.setIsSearched(value: false)
         Utility.gotoHome()
         Utility.callURlDetailsAPI()
     }

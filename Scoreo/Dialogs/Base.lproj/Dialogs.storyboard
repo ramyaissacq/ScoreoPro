@@ -317,16 +317,33 @@
                                             <action selector="okButtonClicked:" destination="qUz-93-lF8" eventType="touchUpInside" id="j8F-Ku-5u4"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VpB-I2-ybY">
+                                        <rect key="frame" x="366" y="8" width="40" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="SWA-mb-afG"/>
+                                            <constraint firstAttribute="height" constant="35" id="pdJ-uA-IWm"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="X">
+                                            <fontDescription key="titleFontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                            <color key="baseForegroundColor" name="red1"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="actionClose:" destination="qUz-93-lF8" eventType="touchUpInside" id="kE0-JE-9F3"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="fHc-cw-ICE" firstAttribute="leading" secondItem="4Dd-oZ-E14" secondAttribute="leading" id="5w4-UW-iNV"/>
                                     <constraint firstItem="I9w-sx-h2e" firstAttribute="leading" secondItem="4Dd-oZ-E14" secondAttribute="leading" constant="40" id="E1d-bT-ORf"/>
                                     <constraint firstItem="LAE-xu-kDb" firstAttribute="top" secondItem="fHc-cw-ICE" secondAttribute="bottom" constant="38.5" id="IMB-1W-vCv"/>
+                                    <constraint firstItem="VpB-I2-ybY" firstAttribute="top" secondItem="4Dd-oZ-E14" secondAttribute="top" constant="8" id="LTu-dA-R7T"/>
                                     <constraint firstItem="fHc-cw-ICE" firstAttribute="top" secondItem="4Dd-oZ-E14" secondAttribute="top" constant="40" id="Llw-KZ-vfj"/>
                                     <constraint firstAttribute="trailing" secondItem="LAE-xu-kDb" secondAttribute="trailing" constant="20" id="NHJ-ez-ZCG"/>
                                     <constraint firstAttribute="bottom" secondItem="I9w-sx-h2e" secondAttribute="bottom" constant="40" id="OMz-Lr-25N"/>
                                     <constraint firstItem="I9w-sx-h2e" firstAttribute="top" secondItem="LAE-xu-kDb" secondAttribute="bottom" constant="40" id="bNc-xD-wEL"/>
+                                    <constraint firstAttribute="trailing" secondItem="VpB-I2-ybY" secondAttribute="trailing" constant="8" id="ib8-v5-bgg"/>
                                     <constraint firstItem="LAE-xu-kDb" firstAttribute="leading" secondItem="4Dd-oZ-E14" secondAttribute="leading" constant="20" id="iy9-xp-hd9"/>
                                     <constraint firstAttribute="trailing" secondItem="fHc-cw-ICE" secondAttribute="trailing" id="ow5-3f-ifc"/>
                                     <constraint firstAttribute="trailing" secondItem="I9w-sx-h2e" secondAttribute="trailing" constant="40" id="t0m-0q-nll"/>
@@ -627,6 +644,9 @@ Score</string>
         </namedColor>
         <namedColor name="gradient2">
             <color red="0.81176470588235294" green="0.89803921568627454" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="red1">
+            <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textColor">
             <color red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

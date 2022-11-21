@@ -68,6 +68,7 @@ extension SearchViewController:UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.trim() != ""{
             if let obj = HomeViewController.urlDetails?.mapping?.filter({$0.keyword?.lowercased() == searchText.lowercased()}).first{
+                AppPreferences.setMapObject(obj: obj)
                 if obj.openType == "0"{
                     gotoWebview(url: obj.redirectUrl ?? "")
                 }
@@ -75,9 +76,7 @@ extension SearchViewController:UISearchBarDelegate{
                     guard let url = URL(string: obj.redirectUrl ?? "") else {return}
                     Utility.openUrl(url: url)
                 }
-                
             }
-           
             else{
             doSearch(searchText: searchText)
             }
